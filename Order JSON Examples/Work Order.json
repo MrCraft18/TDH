@@ -1,0 +1,73 @@
+{
+    "orderType": "Work Order",
+    "customer": {
+        "name": "Connor Manosh",
+        "company": "Manosh Inc.",
+        "hoistSerial": "6x3052020-10",
+        "phone": "802-793-2317",
+        "email": "wendym@manosh.com",
+        "shippingAddress": "120 North Gate Plaza Morrisville VT 05661",
+        "paymentCard": {
+            "name": "Connor Manosh",
+            "number": null,
+            "expiration": null,
+            "ccv": null,
+            "zip": null
+        }
+    },
+    "details": {
+        "dateUpdated": "10/18/2023",
+        "dateReceived": "10/9/2023",
+        "requester": "Jerimiah",
+        "startDate": "10/9/2023",
+        "endDate": null,
+        "warranty": false,
+        "assignedStaff": [
+            "Fab",
+            "Paint",
+            "Service",
+            "Shipping"
+        ],
+        "signedOffBy": null
+    },
+    "invoiceBreakdown": [
+        {
+            "description": "10' Full Tool Box With Standard Shelves & Dividers & Drawers",
+            "serial": "Fab",
+            "ourPartCost": "$2,000.00",
+            "customerPartCost": null,
+            "notes": "PLUS SHIPPING"
+        },
+        {
+            "description": "Tool Box Doors (Gloss Black)",
+            "serial": "Paint",
+            "ourPartCost": null,
+            "customerPartCost": null,
+            "notes": null
+        },
+        {
+            "description": "Fully Assemble Box For Shipping",
+            "serial": "Service",
+            "ourPartCost": null,
+            "customerPartCost": null,
+            "notes": null
+        }
+    ],
+    "shipping": {
+        "date": null,
+        "tracking": null,
+        "returnLabel": null,
+        "via": null
+    },
+    "costDetails": {
+        "tdhShippingCost": null,
+        "customerShippingCost": null,
+        "totalCostForParts": null,
+        "totalItemsWithShip": null,
+        "taxRate": null,
+        "totalTax": null,
+        "otherCharges": null,
+        "invoiceTotal": null
+    },
+    "notes": "Jerry, provide customer with tracking information (connorm@manosh.com)"
+}
