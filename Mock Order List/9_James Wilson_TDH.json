@@ -1,6 +1,6 @@
 {
     "orderType": "TDH",
-    "customer": "Andrew Cobb",
+    "customer": "James Wilson",
     "dates": {
         "dateUpdated": "10/18/2023",
         "startDate": "10/1/2023",
@@ -10,22 +10,6 @@
         {
             "name": "Pipe Racks",
             "status": "Unfinished"
-        },
-        {
-            "name": "Utility Boxes",
-            "details": {
-                "driverSide": "Half",
-                "passengerSide": "Full"
-            },
-            "status": "Unfinished"
-        },
-        {
-            "name": "Undermount Boxes",
-            "details": {
-                "length": "60\"",
-                "driverSide": true,
-                "passengerSide": true
-            }
         },
         {
             "name": "Hydraulic Tank",
@@ -40,7 +24,11 @@
             "status": "Unfinished"
         },
         {
-            "name": "Side Gate",
+            "name": "Utility Boxes",
+            "details": {
+                "driverSide": "Full",
+                "passengerSide": "Half"
+            },
             "status": "Unfinished"
         }
     ]
