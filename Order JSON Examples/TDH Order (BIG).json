@@ -1,0 +1,75 @@
+{
+    "orderType": "TDH Order",
+    "customer": "Andrew Cobb",
+    "details": {
+        "dateUpdated": "10/18/2023",
+        "startDate": "10/1/2023",
+        "finishDate": "11/16/2023"
+    },
+    "chassis": {
+        "model": "Ford F600",
+        "cabLength": "Regular Cab",
+        "color": "WHT",
+        "year": "2023",
+        "engine": "Diesel",
+        "vin": "1FDFF6LT7PDA1349",
+        "ca": "60'"
+    },
+    "hoist": {
+        "serial": "3X2112023-35",
+        "model": "3X2",
+        "bed": {
+            "type": "9' Flatbed",
+            "paintColor": "BLU",
+            "paintCode":"FLNA50176"
+        },
+        "frame": {
+            "type": "FB",
+            "paintColor": "BLU",
+            "paintCode": null
+        },
+        "mast": {
+            "type": "38'",
+            "paintColor": "BLU",
+            "paintCode": null
+        }
+    },
+    "equipment": {
+        "controlSystem": "Electric Control Panel",
+        "hydraulicPower": "PTO & Vane PUMP",
+        "remote": "Pistol Grip Remote",
+        "filter": "GFL2110QBGIS161"
+    },
+    "parts": {
+        "mainLine3000": "YES",
+        "sandLine1000Pound": "NO",
+        "mastRaiseLower": "YES",
+        "mastExtension": "YES",
+        "outriggers": {
+            "front": true,
+            "leftRear": true,
+            "paintColor": "BLK",
+            "paintCode": null
+        },
+        "piperacks": {
+            "driverSide": "Basic Pipe Rack",
+            "passengerSide": "Baic Pipe Rack"
+        },
+        "utilityBoxes": {
+            "driverSide": "Half",
+            "passengerSide": "Full",
+            "paintColor": "WHT",
+            "paintCode": null
+        },
+        "underBodyBoxes": {
+            "length": "3'",
+            "driverSide": true,
+            "passengerSide": true,
+            "paintColor": "WHT",
+            "paintCode": null,
+            "location": "In front of tires"
+        }
+    },
+    "notes": "Mainline Motor Serial# 3000M-61"
+}
+  
