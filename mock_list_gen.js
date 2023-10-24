@@ -19,7 +19,7 @@ let iteration = 0
 names.forEach((name) => {
     iteration++
 
-    const order = fs.readFileSync(getRandomOrder(), 'utf8')
+    const order = fs.readFileSync("./Order JSON Example/Order Template.json", 'utf8')
     const orderJSON = JSON.parse(order)
 
     orderJSON.customer = name
@@ -27,11 +27,6 @@ names.forEach((name) => {
 
     fs.writeFileSync(`./Mock Order List/${iteration}_${name}_${orderJSON.orderType}.json`, JSON.stringify(orderJSON, null, 4))
 })
-
-
-function getRandomOrder() {
-    return Math.random() < 0.5 ? './Order JSON Examples/TDH Order.json' : './Order JSON Examples/Horizon Order.json'
-}
 
 
 
