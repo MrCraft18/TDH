@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders List</title>
@@ -34,11 +31,34 @@
             justify-content: space-between;
         }
     </style>
-</head>
+<style type="text/css"></style><style type="text/css" id="operaUserStyle"></style></head>
 
 <body>
 
-    <div id="orders"></div>
+    <div id="orders"><div class="order">
+                <div class="order-info">
+                    Customer: John Smith<br>
+                    Type: TDH<br>
+                    Body Type: Service Body
+                </div>
+                <div class="order-info">
+                    Start Date: 10/18/2023<br>
+                    End Date: 11/18/2023
+                </div>
+                <div class="parts">
+                    
+                        <div class="part">
+                            <span>Pipe Racks - Unfinished</span>
+                            <span>Assignee: John</span>
+                        </div>
+                    
+                        <div class="part">
+                            <span>Passenger Side Full Box - Unfinished</span>
+                            <span>Assignee: Jane</span>
+                        </div>
+                    
+                </div>
+            </div></div>
 
     <script>
         const data = [
@@ -100,6 +120,6 @@
         });
     </script>
 
-</body>
 
-</html>
+
+</body></html>
