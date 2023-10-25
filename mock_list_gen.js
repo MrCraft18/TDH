@@ -15,80 +15,40 @@ const names = [
 
 
 
-let iteration = 0
-names.forEach((name) => {
-    iteration++
-
-    const order = fs.readFileSync("./Order JSON Example/Order Template.json", 'utf8')
+names.forEach((name, index) => {
+    const order = fs.readFileSync("./Order JSON Examples/Order Template.json", 'utf8')
     const orderJSON = JSON.parse(order)
 
     orderJSON.customer = name
-    orderJSON.parts = generatePartsList()
+    orderJSON.orderType = getRandomElement(orderJSON.orderType)
+    orderJSON.bodyType = getRandomElement(orderJSON.bodyType)
+    orderJSON.parts = orderJSON.parts.map(part => getRandomOptions(part))
 
-    fs.writeFileSync(`./Mock Order List/${iteration}_${name}_${orderJSON.orderType}.json`, JSON.stringify(orderJSON, null, 4))
+    fs.writeFileSync(`./Mock Order List/${index+1}_${name}_${orderJSON.orderType}.json`, JSON.stringify(orderJSON, null, 4))
 })
 
 
 
-function generatePartsList() {
-    //Standard Parts
-    const parts = [
-        {
-            "name": "Pipe Racks",
-            "status": "Unfinished"
-        },
-        {
-            "name": "Hydraulic Tank",
-            "status": "Unfinished"
-        },
-        {
-            "name": "Control Panel",
-            "status": "Unfinished"
-        },
-        {
-            "name": "Pins",
-            "status": "Unfinished"
-        }
-    ]
 
-    //Decide Full and Half Sides
-    if (Math.random() < 0.5) {
-        parts.push({
-            "name": "Utility Boxes",
-            "details": {
-                "driverSide": "Full",
-                "passengerSide": "Half"
-            },
-            "status": "Unfinished"
-        })
-    } else {
-        parts.push({
-            "name": "Utility Boxes",
-            "details": {
-                "driverSide": "Half",
-                "passengerSide": "Full"
-            },
-            "status": "Unfinished"
-        })
-    }
-
-    //Chance for Undermount Boxes
-    if (Math.random() < 0.5) {
-        parts.push({
-            "name": "Undermount Boxes",
-            "details": {
-                "length": generateUndermountLength(),
-                "driverSide": true,
-                "passengerSide": true
+function getRandomOptions(obj) {
+    let result = Object.assign({}, obj);  // Copy all properties from obj to result
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            let value = obj[key];
+            if (Array.isArray(value) && value.length > 0) {
+                let randomIndex = Math.floor(Math.random() * value.length);
+                result[key] = value[randomIndex];
             }
-        })
+        }
     }
-
-    return parts
+    return result;
 }
 
 
 
-function generateUndermountLength() {
-    return Math.random() < 0.5 ? '24"' : '60"'
+function getRandomElement(array) {
+    if (Array.isArray(array) && array.length > 0) {
+        const randomIndex = Math.floor(Math.random() * array.length);
+        return array[randomIndex];
+    }
 }
