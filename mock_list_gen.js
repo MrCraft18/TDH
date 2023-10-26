@@ -15,6 +15,8 @@ const names = [
 
 
 
+const ordersArray = []
+
 names.forEach((name, index) => {
     const order = fs.readFileSync("./Order JSON Examples/Order Template.json", 'utf8')
     const orderJSON = JSON.parse(order)
@@ -24,8 +26,10 @@ names.forEach((name, index) => {
     orderJSON.bodyType = getRandomElement(orderJSON.bodyType)
     orderJSON.parts = orderJSON.parts.map(part => getRandomOptions(part))
 
-    fs.writeFileSync(`./Mock Order List/${index+1}_${name}_${orderJSON.orderType}.json`, JSON.stringify(orderJSON, null, 4))
+    ordersArray.push(orderJSON)
 })
+
+fs.writeFileSync(`./Mock Orders Array.json`, JSON.stringify(ordersArray, null, 4))
 
 
 

@@ -6,32 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders List</title>
     <style>
+        .orders {
+            width: 100%;
+        }
+
         .order {
             border: 1px solid black;
             margin: 10px 0;
             padding: 10px;
             cursor: pointer;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
-        .order-info {
-            flex: 1;
+        .order-info:not(:last-child) {
+            width: 150px;
         }
+
 
         .parts {
             display: none;
-            padding-left: 20px;
             width: 100%;
-            border-top: 1px solid black;
-            margin-top: 10px;
         }
 
         .part {
             margin: 5px 0;
+            padding: 5px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
+            border-bottom: 1px solid black;
+        }
+
+        .part:first-child {
+            border-top: 1px solid black;
+        }
+
+        .part-info:not(:last-child) {
+            width: 200px;
         }
     </style>
 </head>
@@ -41,63 +54,102 @@
     <div id="orders"></div>
 
     <script>
-        const data = [
-            {
-                "orderType": "TDH",
-                "bodyType": "Service Body",
-                "customer": "John Smith",
-                "dates": {
-                    "dateUpdated": "10/20/2023",
-                    "startDate": "10/18/2023",
-                    "finishDate": "11/18/2023"
-                },
-                "parts": [
-                    {
-                        "name": "Pipe Racks",
-                        "status": "Unfinished",
-                        "assignee": "John"
-                    },
-                    {
-                        "name": "Passenger Side Full Box",
-                        "status": "Unfinished",
-                        "assignee": "Jane"
-                    }
-                ]
-            }
-        ];
+        let ordersArray = [];
 
-        function toggleParts(event) {
-            const parts = event.currentTarget.querySelector('.parts');
-            parts.style.display = parts.style.display === 'none' ? 'block' : 'none';
-        }
+        (async function() {
+            try {
+                const response = await fetch('Mock Orders Array.json');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                ordersArray = await response.json();
+                
+                const ordersDiv = document.getElementById('orders');
+                ordersArray.forEach(order => {
+                    const orderDiv = document.createElement('div');
+                    const partsDiv = document.createElement('div');
+                    orderDiv.classList.add('order');
+                    partsDiv.classList.add('parts');
+                    orderDiv.addEventListener('click', toggleParts);
 
-        const ordersDiv = document.getElementById('orders');
-        data.forEach(order => {
-            const orderDiv = document.createElement('div');
-            orderDiv.classList.add('order');
-            orderDiv.addEventListener('click', toggleParts);
+                    orderDiv.innerHTML = `
+                        <div class="order-info">
+                            ${order.customer}
+                        </div>
 
-            orderDiv.innerHTML = `
-                <div class="order-info">
-                    Customer: ${order.customer}<br>
-                    Type: ${order.orderType}<br>
-                    Body Type: ${order.bodyType}
-                </div>
-                <div class="order-info">
-                    Start Date: ${order.dates.startDate}<br>
-                    End Date: ${order.dates.finishDate}
-                </div>
-                <div class="parts">
+                        <div class="order-info">
+                            ${order.orderType}
+                        </div>
+
+                        <div class="order-info">
+                            ${order.bodyType}
+                        </div>
+
+                        <div class="order-info">
+                            Due Date: ${order.dates.finishDate}
+                        </div>
+
+                        <div class="order-info status-info" onclick="editText(this)">
+                            ${order.status}
+                        </div>
+                    `;
+
+                    partsDiv.innerHTML = `
                     ${order.parts.map(part => `
                         <div class="part">
-                            <span>${part.name} - ${part.status}</span>
-                            <span>Assignee: ${part.assignee}</span>
+                            <div class="part-info">
+                                ${part.name}
+                            </div>
+
+                            <div class="part-info" onclick="editText(this)">
+                                ${part.assignee}
+                            </div>
+
+                            <div class="part-info" onclick="editText(this)">
+                                ${part.assignDate}
+                            </div>
+
+                            <div class="part-info" onclick="editText(this)">
+                                ${part.status}
+                            </div>
                         </div>
                     `).join('')}
-                </div>
-            `;
-            ordersDiv.appendChild(orderDiv);
-        });
+                    `;
+
+                    ordersDiv.appendChild(orderDiv);
+                    ordersDiv.appendChild(partsDiv)
+                });
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        })();
+
+
+
+        function toggleParts(event) {
+            const parts = event.currentTarget.nextElementSibling;
+            parts.style.display = parts.style.display === 'none' || parts.style.display === '' ? 'block' : 'none';
+        }
+
+        function editText(div) {
+            div.contentEditable = true;
+            event.stopPropagation();
+            // Focus the div element to allow immediate editing
+            div.focus();
+        }
+
+
+
+// Attach the event listener to the document
+document.addEventListener("keydown", function(event) {
+  // Check if the "Enter" key was pressed
+  if (event.keyCode === 13) {
+    // Remove focus from the currently focused element
+    event.target.blur();
+  }
+});
+
+
     </script>
 
 </body>

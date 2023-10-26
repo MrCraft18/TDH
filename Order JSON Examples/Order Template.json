@@ -1,8 +1,9 @@
 {
+    "customer": "",
     "orderType": ["TDH", "Horizon"], 
     "_comment" : "Also add Squeeze Tools and Work Orders",
     "bodyType": ["Flat Bed", "Service Body"],
-    "customer": "",
+    "status": "Not Started",
     "dates": {
         "dateUpdated": "10/20/2023",
         "startDate": "10/18/2023",
@@ -11,50 +12,50 @@
     "parts": [
         {
             "name": ["Pipe Racks", "Custom Pipe Racks"],
-            "assignee": "Unassigned",
-            "assignDate": "Unassigned",
+            "assignee": "Unassigned Worker",
+            "assignDate": "Unassigned Date",
             "status": "Unfinished"
         },
         {
             "name": ["Driver Side Full Box","Passenger Side Full Box"],
-            "assignee": "Unassigned",
-            "assignDate": "Unassigned",
+            "assignee": "Unassigned Worker",
+            "assignDate": "Unassigned Date",
             "status": "Unfinished"
         },
         {
             "name": ["Driver Side Full Box","Passenger Side Full Box"],
-            "assignee": "Unassigned",
-            "assignDate": "Unassigned",
+            "assignee": "Unassigned Worker",
+            "assignDate": "Unassigned Date",
             "status": "Unfinished"
         },
         {
             "name": ["60\" Undermount Box", "24\" Undermount Box"],
-            "assignee": "Unassigned",
-            "assignDate": "Unassigned",
+            "assignee": "Unassigned Worker",
+            "assignDate": "Unassigned Date",
             "status": "Unfinished"
         },
         {
             "name": ["TDH Hydraulic Tank", "Horizon Hydraulic Tank"],
-            "assignee": "Unassigned",
-            "assignDate": "Unassigned",
+            "assignee": "Unassigned Worker",
+            "assignDate": "Unassigned Date",
             "status": "Unfinished"
         },
         {
             "name": ["Control Panel Cover", "Valve Bank Cover"],
-            "assignee": "Unassigned",
-            "assignDate": "Unassigned",
+            "assignee": "Unassigned Worker",
+            "assignDate": "Unassigned Date",
             "status": "Unfinished"
         },
         {
             "name": "Pins",
-            "assignee": "Unassigned",
-            "assignDate": "Unassigned",
+            "assignee": "Unassigned Worker",
+            "assignDate": "Unassigned Date",
             "status": "Unfinished"
         },
         {
             "name": "Side Gate",
-            "assignee": "Unassigned",
-            "assignDate": "Unassigned",
+            "assignee": "Unassigned Worker",
+            "assignDate": "Unassigned Date",
             "status": "Unfinished"
         }
     ]

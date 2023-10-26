@@ -1,123 +1,145 @@
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orders List</title>
-    <style>
-        .order {
-            border: 1px solid black;
-            margin: 10px 0;
-            padding: 10px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Orders List</title>
+        <style>
+            .order {
+                border: 1px solid black;
+                margin: 5px 0px;
+                padding: 15px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
 
-        .order-info {
-            flex: 1;
-        }
+            .order-info {
+                flex: -1;
+            }
 
-        .parts {
-            display: none;
-            padding-left: 20px;
-            width: 100%;
-            border-top: 1px solid black;
-            margin-top: 10px;
-        }
+            .parts {
+                display: none;
+            }
 
-        .part {
-            margin: 5px 0;
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
-<style type="text/css"></style><style type="text/css" id="operaUserStyle"></style></head>
+            .part {
+                border: 1px solid black;
+                margin: 5px 20px;
+                padding: 10px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .part-info {
+                flex: -1;
+            }
+        </style>
+    </head>
 
 <body>
 
-    <div id="orders"><div class="order">
-                <div class="order-info">
-                    Customer: John Smith<br>
-                    Type: TDH<br>
-                    Body Type: Service Body
+    <div id="orders">
+        <div class="order">
+            <div class="order-info">
+                John Smith
+            </div>
+
+            <div class="order-info">
+                Horizon
+            </div>
+
+            <div class="order-info">
+                Service Body
+            </div>
+
+            <div class="order-info">
+                Due Date: 11/18/2023
+            </div>
+
+            <div class="order-info">
+                Not Started
+            </div>
+        </div>
+
+        <div class="parts">
+            <div class="part">
+                <div class="part-info">
+                    Pipe Racks
                 </div>
-                <div class="order-info">
-                    Start Date: 10/18/2023<br>
-                    End Date: 11/18/2023
+    
+                <div class="part-info">
+                    Dakota
                 </div>
-                <div class="parts">
-                    
-                        <div class="part">
-                            <span>Pipe Racks - Unfinished</span>
-                            <span>Assignee: John</span>
-                        </div>
-                    
-                        <div class="part">
-                            <span>Passenger Side Full Box - Unfinished</span>
-                            <span>Assignee: Jane</span>
-                        </div>
-                    
+    
+                <div class="part-info">
+                    10/19/2023
                 </div>
-            </div></div>
+    
+                <div class="part-info">
+                    Not Started
+                </div>
+            </div>
+        </div>
+
+        <div class="order">
+            <div class="order-info">
+                Robert Brown
+            </div>
+
+            <div class="order-info">
+                TDH
+            </div>
+
+            <div class="order-info">
+                Flat Bed
+            </div>
+
+            <div class="order-info">
+                Due Date: 11/18/2023
+            </div>
+
+            <div class="order-info">
+                Not Started
+            </div>
+        </div>
+
+        <div class="parts">
+            <div class="part">
+                <div class="part-info">
+                    Full Box
+                </div>
+    
+                <div class="part-info">
+                    Caden
+                </div>
+    
+                <div class="part-info">
+                    10/19/2023
+                </div>
+    
+                <div class="part-info">
+                    Not Started
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        const data = [
-            {
-                "orderType": "TDH",
-                "bodyType": "Service Body",
-                "customer": "John Smith",
-                "dates": {
-                    "dateUpdated": "10/20/2023",
-                    "startDate": "10/18/2023",
-                    "finishDate": "11/18/2023"
-                },
-                "parts": [
-                    {
-                        "name": "Pipe Racks",
-                        "status": "Unfinished",
-                        "assignee": "John"
-                    },
-                    {
-                        "name": "Passenger Side Full Box",
-                        "status": "Unfinished",
-                        "assignee": "Jane"
-                    }
-                ]
-            }
-        ];
-
         function toggleParts(event) {
-            const parts = event.currentTarget.querySelector('.parts');
-            parts.style.display = parts.style.display === 'none' ? 'block' : 'none';
+            const orderDiv = event.currentTarget;
+            const partsDiv = orderDiv.nextElementSibling;
+
+            if (partsDiv.style.display === 'none' || partsDiv.style.display === '') {
+                partsDiv.style.display = 'block'
+            } else {
+                partsDiv.style.display = 'none'
+            }
         }
 
-        const ordersDiv = document.getElementById('orders');
-        data.forEach(order => {
-            const orderDiv = document.createElement('div');
-            orderDiv.classList.add('order');
-            orderDiv.addEventListener('click', toggleParts);
-
-            orderDiv.innerHTML = `
-                <div class="order-info">
-                    Customer: ${order.customer}<br>
-                    Type: ${order.orderType}<br>
-                    Body Type: ${order.bodyType}
-                </div>
-                <div class="order-info">
-                    Start Date: ${order.dates.startDate}<br>
-                    End Date: ${order.dates.finishDate}
-                </div>
-                <div class="parts">
-                    ${order.parts.map(part => `
-                        <div class="part">
-                            <span>${part.name} - ${part.status}</span>
-                            <span>Assignee: ${part.assignee}</span>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-            ordersDiv.appendChild(orderDiv);
-        });
+        const orderDivs = document.querySelectorAll('.order');
+        orderDivs.forEach(orderDiv => orderDiv.addEventListener('click', toggleParts))
     </script>
 
 
