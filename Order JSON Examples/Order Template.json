@@ -23,7 +23,7 @@
             "status": "Unfinished"
         },
         {
-            "name": ["Driver Side Full Box","Passenger Side Full Box"],
+            "name": ["Driver Side Half Box","Passenger Side Half Box"],
             "assignee": "Unassigned Worker",
             "assignDate": "Unassigned Date",
             "status": "Unfinished"
