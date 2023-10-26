@@ -10,6 +10,16 @@ const names = [
     "William Miller",
     "Sarah Davis",
     "James Wilson",
+    "Jessica Taylor",
+    "John Smith",
+    "Jane Doe",
+    "Michael Johnson",
+    "Emily Taylor",
+    "Robert Brown",
+    "Mary Jones",
+    "William Miller",
+    "Sarah Davis",
+    "James Wilson",
     "Jessica Taylor"
 ]
 
