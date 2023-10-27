@@ -32,7 +32,7 @@ names.forEach((name, index) => {
     const orderJSON = JSON.parse(order)
 
     orderJSON.customer = name
-    orderJSON.orderType = getRandomElement(orderJSON.orderType)
+    orderJSON.type = getRandomElement(orderJSON.type)
     orderJSON.bodyType = getRandomElement(orderJSON.bodyType)
     orderJSON.parts = orderJSON.parts.map(part => getRandomOptions(part))
 

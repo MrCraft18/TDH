@@ -1,69 +1,7 @@
 [
     {
         "customer": "John Smith",
-        "orderType": "TDH",
-        "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Service Body",
-        "status": "Not Started",
-        "dates": {
-            "dateUpdated": "10/20/2023",
-            "startDate": "10/18/2023",
-            "finishDate": "11/18/2023"
-        },
-        "parts": [
-            {
-                "name": "Custom Pipe Racks",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Passenger Side Full Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Half Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "24\" Undermount Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "TDH Hydraulic Tank",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Control Panel Cover",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Pins",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Side Gate",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            }
-        ]
-    },
-    {
-        "customer": "Jane Doe",
-        "orderType": "TDH",
+        "type": "TDH",
         "_comment": "Also add Squeeze Tools and Work Orders",
         "bodyType": "Flat Bed",
         "status": "Not Started",
@@ -81,378 +19,6 @@
             },
             {
                 "name": "Driver Side Full Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Half Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "60\" Undermount Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "TDH Hydraulic Tank",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Control Panel Cover",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Pins",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Side Gate",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            }
-        ]
-    },
-    {
-        "customer": "Michael Johnson",
-        "orderType": "TDH",
-        "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Service Body",
-        "status": "Not Started",
-        "dates": {
-            "dateUpdated": "10/20/2023",
-            "startDate": "10/18/2023",
-            "finishDate": "11/18/2023"
-        },
-        "parts": [
-            {
-                "name": "Pipe Racks",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Full Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Half Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "60\" Undermount Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "TDH Hydraulic Tank",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Control Panel Cover",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Pins",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Side Gate",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            }
-        ]
-    },
-    {
-        "customer": "Emily Taylor",
-        "orderType": "TDH",
-        "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Service Body",
-        "status": "Not Started",
-        "dates": {
-            "dateUpdated": "10/20/2023",
-            "startDate": "10/18/2023",
-            "finishDate": "11/18/2023"
-        },
-        "parts": [
-            {
-                "name": "Custom Pipe Racks",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Passenger Side Full Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Passenger Side Half Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "24\" Undermount Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "TDH Hydraulic Tank",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Control Panel Cover",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Pins",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Side Gate",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            }
-        ]
-    },
-    {
-        "customer": "Robert Brown",
-        "orderType": "TDH",
-        "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Service Body",
-        "status": "Not Started",
-        "dates": {
-            "dateUpdated": "10/20/2023",
-            "startDate": "10/18/2023",
-            "finishDate": "11/18/2023"
-        },
-        "parts": [
-            {
-                "name": "Custom Pipe Racks",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Full Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Passenger Side Half Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "24\" Undermount Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "TDH Hydraulic Tank",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Control Panel Cover",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Pins",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Side Gate",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            }
-        ]
-    },
-    {
-        "customer": "Mary Jones",
-        "orderType": "Horizon",
-        "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Service Body",
-        "status": "Not Started",
-        "dates": {
-            "dateUpdated": "10/20/2023",
-            "startDate": "10/18/2023",
-            "finishDate": "11/18/2023"
-        },
-        "parts": [
-            {
-                "name": "Pipe Racks",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Full Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Half Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "24\" Undermount Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "TDH Hydraulic Tank",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Control Panel Cover",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Pins",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Side Gate",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            }
-        ]
-    },
-    {
-        "customer": "William Miller",
-        "orderType": "Horizon",
-        "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Service Body",
-        "status": "Not Started",
-        "dates": {
-            "dateUpdated": "10/20/2023",
-            "startDate": "10/18/2023",
-            "finishDate": "11/18/2023"
-        },
-        "parts": [
-            {
-                "name": "Custom Pipe Racks",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Passenger Side Full Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Half Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "24\" Undermount Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "TDH Hydraulic Tank",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Control Panel Cover",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Pins",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Side Gate",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            }
-        ]
-    },
-    {
-        "customer": "Sarah Davis",
-        "orderType": "Horizon",
-        "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Flat Bed",
-        "status": "Not Started",
-        "dates": {
-            "dateUpdated": "10/20/2023",
-            "startDate": "10/18/2023",
-            "finishDate": "11/18/2023"
-        },
-        "parts": [
-            {
-                "name": "Custom Pipe Racks",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Passenger Side Full Box",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
@@ -496,10 +62,72 @@
         ]
     },
     {
-        "customer": "James Wilson",
-        "orderType": "TDH",
+        "customer": "Jane Doe",
+        "type": "TDH",
         "_comment": "Also add Squeeze Tools and Work Orders",
         "bodyType": "Flat Bed",
+        "status": "Not Started",
+        "dates": {
+            "dateUpdated": "10/20/2023",
+            "startDate": "10/18/2023",
+            "finishDate": "11/18/2023"
+        },
+        "parts": [
+            {
+                "name": "Pipe Racks",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Full Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Half Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "24\" Undermount Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "TDH Hydraulic Tank",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Valve Bank Cover",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Pins",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Side Gate",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            }
+        ]
+    },
+    {
+        "customer": "Michael Johnson",
+        "type": "Horizon",
+        "_comment": "Also add Squeeze Tools and Work Orders",
+        "bodyType": "Service Body",
         "status": "Not Started",
         "dates": {
             "dateUpdated": "10/20/2023",
@@ -514,19 +142,19 @@
                 "status": "Unfinished"
             },
             {
-                "name": "Passenger Side Full Box",
+                "name": "Driver Side Full Box",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
             },
             {
-                "name": "Passenger Side Half Box",
+                "name": "Driver Side Half Box",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
             },
             {
-                "name": "24\" Undermount Box",
+                "name": "60\" Undermount Box",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
@@ -558,8 +186,256 @@
         ]
     },
     {
-        "customer": "Jessica Taylor",
-        "orderType": "Horizon",
+        "customer": "Emily Taylor",
+        "type": "Horizon",
+        "_comment": "Also add Squeeze Tools and Work Orders",
+        "bodyType": "Service Body",
+        "status": "Not Started",
+        "dates": {
+            "dateUpdated": "10/20/2023",
+            "startDate": "10/18/2023",
+            "finishDate": "11/18/2023"
+        },
+        "parts": [
+            {
+                "name": "Pipe Racks",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Full Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Passenger Side Half Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "60\" Undermount Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Horizon Hydraulic Tank",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Control Panel Cover",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Pins",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Side Gate",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            }
+        ]
+    },
+    {
+        "customer": "Robert Brown",
+        "type": "Horizon",
+        "_comment": "Also add Squeeze Tools and Work Orders",
+        "bodyType": "Service Body",
+        "status": "Not Started",
+        "dates": {
+            "dateUpdated": "10/20/2023",
+            "startDate": "10/18/2023",
+            "finishDate": "11/18/2023"
+        },
+        "parts": [
+            {
+                "name": "Custom Pipe Racks",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Full Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Half Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "24\" Undermount Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "TDH Hydraulic Tank",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Valve Bank Cover",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Pins",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Side Gate",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            }
+        ]
+    },
+    {
+        "customer": "Mary Jones",
+        "type": "Horizon",
+        "_comment": "Also add Squeeze Tools and Work Orders",
+        "bodyType": "Service Body",
+        "status": "Not Started",
+        "dates": {
+            "dateUpdated": "10/20/2023",
+            "startDate": "10/18/2023",
+            "finishDate": "11/18/2023"
+        },
+        "parts": [
+            {
+                "name": "Custom Pipe Racks",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Full Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Passenger Side Half Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "60\" Undermount Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Horizon Hydraulic Tank",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Control Panel Cover",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Pins",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Side Gate",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            }
+        ]
+    },
+    {
+        "customer": "William Miller",
+        "type": "TDH",
+        "_comment": "Also add Squeeze Tools and Work Orders",
+        "bodyType": "Service Body",
+        "status": "Not Started",
+        "dates": {
+            "dateUpdated": "10/20/2023",
+            "startDate": "10/18/2023",
+            "finishDate": "11/18/2023"
+        },
+        "parts": [
+            {
+                "name": "Pipe Racks",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Full Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Passenger Side Half Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "24\" Undermount Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Horizon Hydraulic Tank",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Control Panel Cover",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Pins",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Side Gate",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            }
+        ]
+    },
+    {
+        "customer": "Sarah Davis",
+        "type": "TDH",
         "_comment": "Also add Squeeze Tools and Work Orders",
         "bodyType": "Service Body",
         "status": "Not Started",
@@ -583,6 +459,130 @@
             },
             {
                 "name": "Driver Side Half Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "60\" Undermount Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Horizon Hydraulic Tank",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Valve Bank Cover",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Pins",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Side Gate",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            }
+        ]
+    },
+    {
+        "customer": "James Wilson",
+        "type": "Horizon",
+        "_comment": "Also add Squeeze Tools and Work Orders",
+        "bodyType": "Service Body",
+        "status": "Not Started",
+        "dates": {
+            "dateUpdated": "10/20/2023",
+            "startDate": "10/18/2023",
+            "finishDate": "11/18/2023"
+        },
+        "parts": [
+            {
+                "name": "Pipe Racks",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Passenger Side Full Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Half Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "24\" Undermount Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "TDH Hydraulic Tank",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Valve Bank Cover",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Pins",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Side Gate",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            }
+        ]
+    },
+    {
+        "customer": "Jessica Taylor",
+        "type": "TDH",
+        "_comment": "Also add Squeeze Tools and Work Orders",
+        "bodyType": "Flat Bed",
+        "status": "Not Started",
+        "dates": {
+            "dateUpdated": "10/20/2023",
+            "startDate": "10/18/2023",
+            "finishDate": "11/18/2023"
+        },
+        "parts": [
+            {
+                "name": "Pipe Racks",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Full Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Passenger Side Half Box",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
@@ -621,9 +621,133 @@
     },
     {
         "customer": "John Smith",
-        "orderType": "TDH",
+        "type": "TDH",
         "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Flat Bed",
+        "bodyType": "Service Body",
+        "status": "Not Started",
+        "dates": {
+            "dateUpdated": "10/20/2023",
+            "startDate": "10/18/2023",
+            "finishDate": "11/18/2023"
+        },
+        "parts": [
+            {
+                "name": "Custom Pipe Racks",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Passenger Side Full Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Half Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "24\" Undermount Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Horizon Hydraulic Tank",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Control Panel Cover",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Pins",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Side Gate",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            }
+        ]
+    },
+    {
+        "customer": "Jane Doe",
+        "type": "TDH",
+        "_comment": "Also add Squeeze Tools and Work Orders",
+        "bodyType": "Service Body",
+        "status": "Not Started",
+        "dates": {
+            "dateUpdated": "10/20/2023",
+            "startDate": "10/18/2023",
+            "finishDate": "11/18/2023"
+        },
+        "parts": [
+            {
+                "name": "Custom Pipe Racks",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Full Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Half Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "60\" Undermount Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "TDH Hydraulic Tank",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Control Panel Cover",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Pins",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Side Gate",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            }
+        ]
+    },
+    {
+        "customer": "Michael Johnson",
+        "type": "Horizon",
+        "_comment": "Also add Squeeze Tools and Work Orders",
+        "bodyType": "Service Body",
         "status": "Not Started",
         "dates": {
             "dateUpdated": "10/20/2023",
@@ -656,131 +780,7 @@
                 "status": "Unfinished"
             },
             {
-                "name": "TDH Hydraulic Tank",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Valve Bank Cover",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Pins",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Side Gate",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            }
-        ]
-    },
-    {
-        "customer": "Jane Doe",
-        "orderType": "TDH",
-        "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Flat Bed",
-        "status": "Not Started",
-        "dates": {
-            "dateUpdated": "10/20/2023",
-            "startDate": "10/18/2023",
-            "finishDate": "11/18/2023"
-        },
-        "parts": [
-            {
-                "name": "Pipe Racks",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Passenger Side Full Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Half Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "24\" Undermount Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "TDH Hydraulic Tank",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Valve Bank Cover",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Pins",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Side Gate",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            }
-        ]
-    },
-    {
-        "customer": "Michael Johnson",
-        "orderType": "TDH",
-        "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Service Body",
-        "status": "Not Started",
-        "dates": {
-            "dateUpdated": "10/20/2023",
-            "startDate": "10/18/2023",
-            "finishDate": "11/18/2023"
-        },
-        "parts": [
-            {
-                "name": "Custom Pipe Racks",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Passenger Side Full Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Half Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "60\" Undermount Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "TDH Hydraulic Tank",
+                "name": "Horizon Hydraulic Tank",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
@@ -807,9 +807,9 @@
     },
     {
         "customer": "Emily Taylor",
-        "orderType": "TDH",
+        "type": "Horizon",
         "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Service Body",
+        "bodyType": "Flat Bed",
         "status": "Not Started",
         "dates": {
             "dateUpdated": "10/20/2023",
@@ -830,7 +830,69 @@
                 "status": "Unfinished"
             },
             {
-                "name": "Passenger Side Half Box",
+                "name": "Driver Side Half Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "60\" Undermount Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "TDH Hydraulic Tank",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Control Panel Cover",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Pins",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Side Gate",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            }
+        ]
+    },
+    {
+        "customer": "Robert Brown",
+        "type": "TDH",
+        "_comment": "Also add Squeeze Tools and Work Orders",
+        "bodyType": "Service Body",
+        "status": "Not Started",
+        "dates": {
+            "dateUpdated": "10/20/2023",
+            "startDate": "10/18/2023",
+            "finishDate": "11/18/2023"
+        },
+        "parts": [
+            {
+                "name": "Custom Pipe Racks",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Passenger Side Full Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Half Box",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
@@ -868,72 +930,10 @@
         ]
     },
     {
-        "customer": "Robert Brown",
-        "orderType": "Horizon",
-        "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Flat Bed",
-        "status": "Not Started",
-        "dates": {
-            "dateUpdated": "10/20/2023",
-            "startDate": "10/18/2023",
-            "finishDate": "11/18/2023"
-        },
-        "parts": [
-            {
-                "name": "Custom Pipe Racks",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Full Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Driver Side Half Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "24\" Undermount Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "TDH Hydraulic Tank",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Control Panel Cover",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Pins",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Side Gate",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            }
-        ]
-    },
-    {
         "customer": "Mary Jones",
-        "orderType": "TDH",
+        "type": "TDH",
         "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Flat Bed",
+        "bodyType": "Service Body",
         "status": "Not Started",
         "dates": {
             "dateUpdated": "10/20/2023",
@@ -948,7 +948,7 @@
                 "status": "Unfinished"
             },
             {
-                "name": "Driver Side Full Box",
+                "name": "Passenger Side Full Box",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
@@ -960,13 +960,13 @@
                 "status": "Unfinished"
             },
             {
-                "name": "24\" Undermount Box",
+                "name": "60\" Undermount Box",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
             },
             {
-                "name": "TDH Hydraulic Tank",
+                "name": "Horizon Hydraulic Tank",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
@@ -993,7 +993,7 @@
     },
     {
         "customer": "William Miller",
-        "orderType": "Horizon",
+        "type": "TDH",
         "_comment": "Also add Squeeze Tools and Work Orders",
         "bodyType": "Service Body",
         "status": "Not Started",
@@ -1022,7 +1022,7 @@
                 "status": "Unfinished"
             },
             {
-                "name": "24\" Undermount Box",
+                "name": "60\" Undermount Box",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
@@ -1055,7 +1055,7 @@
     },
     {
         "customer": "Sarah Davis",
-        "orderType": "Horizon",
+        "type": "TDH",
         "_comment": "Also add Squeeze Tools and Work Orders",
         "bodyType": "Flat Bed",
         "status": "Not Started",
@@ -1079,6 +1079,68 @@
             },
             {
                 "name": "Passenger Side Half Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "60\" Undermount Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "TDH Hydraulic Tank",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Control Panel Cover",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Pins",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Side Gate",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            }
+        ]
+    },
+    {
+        "customer": "James Wilson",
+        "type": "Horizon",
+        "_comment": "Also add Squeeze Tools and Work Orders",
+        "bodyType": "Flat Bed",
+        "status": "Not Started",
+        "dates": {
+            "dateUpdated": "10/20/2023",
+            "startDate": "10/18/2023",
+            "finishDate": "11/18/2023"
+        },
+        "parts": [
+            {
+                "name": "Custom Pipe Racks",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Passenger Side Full Box",
+                "assignee": "Unassigned Worker",
+                "assignDate": "Unassigned Date",
+                "status": "Unfinished"
+            },
+            {
+                "name": "Driver Side Half Box",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
@@ -1116,10 +1178,10 @@
         ]
     },
     {
-        "customer": "James Wilson",
-        "orderType": "TDH",
+        "customer": "Jessica Taylor",
+        "type": "Horizon",
         "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Flat Bed",
+        "bodyType": "Service Body",
         "status": "Not Started",
         "dates": {
             "dateUpdated": "10/20/2023",
@@ -1128,7 +1190,7 @@
         },
         "parts": [
             {
-                "name": "Custom Pipe Racks",
+                "name": "Pipe Racks",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
@@ -1146,75 +1208,13 @@
                 "status": "Unfinished"
             },
             {
-                "name": "60\" Undermount Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Horizon Hydraulic Tank",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Control Panel Cover",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Pins",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Side Gate",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            }
-        ]
-    },
-    {
-        "customer": "Jessica Taylor",
-        "orderType": "Horizon",
-        "_comment": "Also add Squeeze Tools and Work Orders",
-        "bodyType": "Service Body",
-        "status": "Not Started",
-        "dates": {
-            "dateUpdated": "10/20/2023",
-            "startDate": "10/18/2023",
-            "finishDate": "11/18/2023"
-        },
-        "parts": [
-            {
-                "name": "Pipe Racks",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Passenger Side Full Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
-                "name": "Passenger Side Half Box",
-                "assignee": "Unassigned Worker",
-                "assignDate": "Unassigned Date",
-                "status": "Unfinished"
-            },
-            {
                 "name": "24\" Undermount Box",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"
             },
             {
-                "name": "Horizon Hydraulic Tank",
+                "name": "TDH Hydraulic Tank",
                 "assignee": "Unassigned Worker",
                 "assignDate": "Unassigned Date",
                 "status": "Unfinished"

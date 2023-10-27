@@ -1,6 +1,6 @@
 {
     "customer": "",
-    "orderType": ["TDH", "Horizon"], 
+    "type": ["TDH", "Horizon"], 
     "_comment" : "Also add Squeeze Tools and Work Orders",
     "bodyType": ["Flat Bed", "Service Body"],
     "status": "Not Started",
