@@ -14,6 +14,8 @@
                 width: 100%;
                 border-collapse: collapse;
                 table-layout: fixed;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
             }
 
             tbody.order-body {
@@ -55,9 +57,12 @@
                 padding: 2px;
             }
 
-            tbody.part-body tr:first-child td.part-data {
-                /* border-top: 1px solid black; */
-            }
+            .custom-select {
+            appearance: none;  /* Remove default appearance */
+            border: none;  /* Remove border */
+            background: transparent;  /* Make background transparent */
+            outline: none;  /* Remove focus outline */
+        }
 
             header {
                 background-color: #333;
@@ -104,7 +109,14 @@
                         <td class="order-data">Horizon</td>
                         <td class="order-data">Service Body</td>
                         <td class="order-data">Due Date:<br>11/18/2023</td>
-                        <td class="order-data">Now</td>
+                        <td class="order-data">
+                            <select class="custom-select">
+                                <option>Not Started</option>
+                                <option>In Progress</option>
+                                <option>Waiting</option>
+                                <option>Finished</option>
+                            </select>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -123,7 +135,9 @@
                     <tr>
                         <td class="part-data">Full Box</td>
                         <td class="part-data">Unassigned Worker</td>
-                        <td class="part-data">Unassigned Date</td>
+                        <td class="part-data">
+                            <input type="date" id="date">
+                        </td>
                         <td class="part-data">Unfinished</td>
                     </tr>
 

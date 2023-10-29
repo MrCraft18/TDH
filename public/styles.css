@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    /* -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+div.orders {
+    position: relative;
+}
+
+div.order {
+    transition: margin 0.25s;
+    box-sizing: border-box;
+    position: relative;
+    background: white;
+}
+
+.order.dragging {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+tbody.order-body {
+    box-shadow: 0 -1px 0 black, 0 1px 0 black;
+    display: table-row-group;
+    height: 55px;
+    cursor: pointer;
+}
+
+td.order-data {
+    text-align: center;
+    vertical-align: middle;
+    width: 15%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+td.order-data:first-child {
+    text-align: left;
+    width: 30%;
+    padding: 0 15px;
+    text-overflow: ellipsis;
+}
+
+td.order-data:last-child {
+    text-align: right;
+    width: 10%;
+    padding: 0px 5px;
+}
+
+div.parts {
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    overflow: hidden;
+}
+
+td.part-data {
+    border-bottom: 1px solid black;
+    padding: 5px 0px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+td.part-data:first-child {
+    text-align: left;
+    width: 40%;
+    padding-left: 4px;
+}
+
+td.part-data:last-child {
+    text-align: right;
+    width: 13%;
+}
+
+div.json {
+    display: none;
+}
+
+input[type="date"],
+.custom-select {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.custom-select {
+    appearance: none;
+    padding-left: 6px;
+    padding-right: 6px;
+    background: transparent;
+    border: 1px solid transparent;
+    outline: none;
+    color: #000;
+}
+
+.custom-select:focus {
+    border-color: #000;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-clear-button {
+    -webkit-appearance: none;
+    color: #000;
+}
+
+input[type="date"] {
+    border: none;
+    color: #000;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-flex;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}

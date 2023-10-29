@@ -4,36 +4,20 @@ const names = [
     "John Smith",
     "Jane Doe",
     "Michael Johnson",
-    "Emily Taylor",
-    "Robert Brown",
-    "Mary Jones",
-    "William Miller",
-    "Sarah Davis",
-    "James Wilson",
-    "Jessica Taylor",
-    "John Smith",
-    "Jane Doe",
-    "Michael Johnson",
-    "Emily Taylor",
-    "Robert Brown",
-    "Mary Jones",
-    "William Miller",
-    "Sarah Davis",
-    "James Wilson",
-    "Jessica Taylor"
 ]
 
 
 
 const ordersArray = []
 
-names.forEach((name, index) => {
+names.forEach((name) => {
     const order = fs.readFileSync("./Order JSON Examples/Order Template.json", 'utf8')
     const orderJSON = JSON.parse(order)
 
     orderJSON.customer = name
     orderJSON.type = getRandomElement(orderJSON.type)
     orderJSON.bodyType = getRandomElement(orderJSON.bodyType)
+    orderJSON.serial = randomSerial()
     orderJSON.parts = orderJSON.parts.map(part => getRandomOptions(part))
 
     ordersArray.push(orderJSON)
@@ -45,7 +29,7 @@ fs.writeFileSync(`./Mock Orders Array.json`, JSON.stringify(ordersArray, null, 4
 
 
 function getRandomOptions(obj) {
-    let result = Object.assign({}, obj);  // Copy all properties from obj to result
+    let result = Object.assign({}, obj); 
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
             let value = obj[key];
@@ -65,4 +49,10 @@ function getRandomElement(array) {
         const randomIndex = Math.floor(Math.random() * array.length);
         return array[randomIndex];
     }
+}
+
+
+
+function randomSerial() {
+    return Math.floor(Math.random() * (999 - 100 + 1)) + 100
 }

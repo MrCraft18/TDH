@@ -4,6 +4,7 @@
     "_comment" : "Also add Squeeze Tools and Work Orders",
     "bodyType": ["Flat Bed", "Service Body"],
     "status": "Not Started",
+    "serial": "",
     "dates": {
         "dateUpdated": "10/20/2023",
         "startDate": "10/18/2023",
@@ -13,49 +14,49 @@
         {
             "name": ["Pipe Racks", "Custom Pipe Racks"],
             "assignee": "Unassigned Worker",
-            "assignDate": "Unassigned Date",
+            "assignDate": "",
             "status": "Unfinished"
         },
         {
             "name": ["Driver Side Full Box","Passenger Side Full Box"],
             "assignee": "Unassigned Worker",
-            "assignDate": "Unassigned Date",
+            "assignDate": "",
             "status": "Unfinished"
         },
         {
             "name": ["Driver Side Half Box","Passenger Side Half Box"],
             "assignee": "Unassigned Worker",
-            "assignDate": "Unassigned Date",
+            "assignDate": "",
             "status": "Unfinished"
         },
         {
             "name": ["60\" Undermount Box", "24\" Undermount Box"],
             "assignee": "Unassigned Worker",
-            "assignDate": "Unassigned Date",
+            "assignDate": "",
             "status": "Unfinished"
         },
         {
             "name": ["TDH Hydraulic Tank", "Horizon Hydraulic Tank"],
             "assignee": "Unassigned Worker",
-            "assignDate": "Unassigned Date",
+            "assignDate": "",
             "status": "Unfinished"
         },
         {
             "name": ["Control Panel Cover", "Valve Bank Cover"],
             "assignee": "Unassigned Worker",
-            "assignDate": "Unassigned Date",
+            "assignDate": "",
             "status": "Unfinished"
         },
         {
             "name": "Pins",
             "assignee": "Unassigned Worker",
-            "assignDate": "Unassigned Date",
+            "assignDate": "",
             "status": "Unfinished"
         },
         {
             "name": "Side Gate",
             "assignee": "Unassigned Worker",
-            "assignDate": "Unassigned Date",
+            "assignDate": "",
             "status": "Unfinished"
         }
     ]
