@@ -5,14 +5,17 @@ const fs = require('fs')
 
 
 const getOrders = () => {
-    return JSON.parse(fs.readFileSync('./database/Mock Orders Array.json'))
+    return new Promise(res => {
+        res(JSON.parse(fs.readFileSync('./database/Mock Orders Array.json')))
+    })
 }
 
-const orders = getOrders()
-
-makeUpdatedOrder(orders, '804', null, 'status', 'In Progress')
-
-
+const updateOrders = (orders) => {
+    return new Promise(res => {
+        fs.writeFileSync('./database/Mock Orders Array.json', JSON.stringify(orders, null, 4), 'utf8')
+        res()
+    })
+}
 
 
 
@@ -29,14 +32,25 @@ function makeUpdatedOrder(orders, serial, partName = null, param, newValue) {
                     }
                 }
             } else {
-                console.log('No part name')
                 // Update a top-level property
-                console.log(i)
-                console.log(param)
-                console.log(newValue)
                 orders[i][param] = newValue
                 return orders
             }
         }
     }
+}
+
+
+
+
+
+
+
+
+
+
+module.exports = {
+    getOrders,
+    makeUpdatedOrder,
+    updateOrders,
 }

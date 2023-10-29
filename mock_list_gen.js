@@ -23,7 +23,7 @@ names.forEach((name) => {
     ordersArray.push(orderJSON)
 })
 
-fs.writeFileSync(`./Mock Orders Array.json`, JSON.stringify(ordersArray, null, 4))
+fs.writeFileSync(`./database/Mock Orders Array.json`, JSON.stringify(ordersArray, null, 4))
 
 
 

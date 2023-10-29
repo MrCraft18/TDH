@@ -15,11 +15,11 @@ table {
     font-size: 14px;
 }
 
-div.orders {
+.orders {
     position: relative;
 }
 
-div.order {
+.order {
     transition: margin 0.25s;
     box-sizing: border-box;
     position: relative;
@@ -32,14 +32,14 @@ div.order {
     z-index: 1000;
 }
 
-tbody.order-body {
+.order-body {
     box-shadow: 0 -1px 0 black, 0 1px 0 black;
     display: table-row-group;
     height: 55px;
     cursor: pointer;
 }
 
-td.order-data {
+.order-data {
     text-align: center;
     vertical-align: middle;
     width: 15%;
@@ -47,26 +47,26 @@ td.order-data {
     overflow: hidden;
 }
 
-td.order-data:first-child {
+.order-data:first-child {
     text-align: left;
     width: 30%;
     padding: 0 15px;
     text-overflow: ellipsis;
 }
 
-td.order-data:last-child {
+.order-data:last-child {
     text-align: right;
     width: 10%;
     padding: 0px 5px;
 }
 
-div.parts {
+.parts {
     max-height: 0;
     transition: max-height 0.2s ease-out;
     overflow: hidden;
 }
 
-td.part-data {
+.part-data {
     border-bottom: 1px solid black;
     padding: 5px 0px;
     text-align: center;
@@ -75,18 +75,18 @@ td.part-data {
     overflow: hidden;
 }
 
-td.part-data:first-child {
+.part-data:first-child {
     text-align: left;
     width: 40%;
     padding-left: 4px;
 }
 
-td.part-data:last-child {
+.part-data:last-child {
     text-align: right;
     width: 13%;
 }
 
-div.json {
+.json {
     display: none;
 }
 

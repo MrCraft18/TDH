@@ -4,7 +4,7 @@
         "type": "TDH",
         "_comment": "Also add Squeeze Tools and Work Orders",
         "bodyType": "Service Body",
-        "status": "Not Started",
+        "status": "Waiting",
         "serial": 804,
         "dates": {
             "dateUpdated": "10/20/2023",
@@ -14,13 +14,13 @@
         "parts": [
             {
                 "name": "Custom Pipe Racks",
-                "assignee": "Unassigned Worker",
+                "assignee": "Orion",
                 "assignDate": "",
                 "status": "Unfinished"
             },
             {
                 "name": "Driver Side Full Box",
-                "assignee": "Unassigned Worker",
+                "assignee": "Orion",
                 "assignDate": "",
                 "status": "Unfinished"
             },
