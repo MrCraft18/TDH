@@ -5,13 +5,15 @@ let workerOptions = ['Dakota', 'Caden', 'Jeff', 'Orion', 'Jason', 'Unassigned Wo
 
 const URL = `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':' + window.location.port : ''}`
 
+const socket = io()
+
 window.onload = async function () {
     try {
-        const ordersResponse = await fetch(URL + '/orders')
+        const ordersResponse = await serverRequest('queryAllOrders')
         if (!ordersResponse.ok) {
             throw new Error('Network response was not ok ' + ordersResponse.statusText)
         }
-        ordersArray = await ordersResponse.json()
+        ordersArray = await ordersResponse.body
 
         const ordersDiv = document.getElementById('orders')
 
@@ -149,13 +151,7 @@ window.onload = async function () {
 
 
         //Send Edit Parameters to
-        const editOrderResponse = await fetch(URL + '/editOrder', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({orderJSON})
-        })
+        const editOrderResponse = await fetch('/editOrder', orderJSON)
         if (editOrderResponse.ok) {
             jsonDiv.innerText = JSON.stringify(orderJSON)
             console.log(`Edited ${orderJSON.customer} Order Successfully`)
@@ -171,6 +167,22 @@ window.onload = async function () {
 
 
 
+
+
+
+function serverRequest (endpoint, body = null) {
+    return new Promise((resolve, reject) => {
+        try {
+            socket.emit(endpoint, body)
+
+            socket.on(endpoint, response => {
+                resolve(response)
+            })
+        } catch (err) {
+            reject(err)
+        }
+    })
+}
 
 
 
