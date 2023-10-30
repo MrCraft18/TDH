@@ -2,7 +2,6 @@ let ordersArray = []
 let orderStatusOptions = ['Not Started', 'In Progress', 'Waiting', 'Finished']
 let partStatusOptions = ['Unfinished', 'Done']
 let workerOptions = ['Dakota', 'Caden', 'Jeff', 'Orion', 'Jason', 'Unassigned Worker']
-let editableParameters = [{ 'order-status': 'status' }, { 'assignee': 'assignee' }, { 'assign-date': 'assignDate' }, { 'part-status': 'status' }]
 
 const URL = `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':' + window.location.port : ''}`
 
@@ -69,7 +68,7 @@ window.onload = async function () {
                         <tr>
                             <td class="part-data part-name">${part.name}</td>
                             <td class="part-data assignee">
-                                <select class="custom-select asignee">
+                                <select class="custom-select assignee">
                                     ${workerOptions.map(opt => `
                                         <option${opt === part.assignee ? ' selected' : ''}>${opt}</option>
                                     `)}
@@ -116,15 +115,22 @@ window.onload = async function () {
     const inputElements = [...selectElements, ...dateElements]
     inputElements.forEach(function(inputElement) {
     inputElement.addEventListener('change', function(event) {
+        const element = event.target
+
         //Blur Element
-        this.blur();
+        element.blur();
+
+
+        //Stop Click Event Propagation
+        inputElement.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
 
 
 
         //Make Change Request to Server
 
-        let orderJSON = this.closest('.order').querySelector('.json').innerText
-        let inputLocation
+        let orderJSON = JSON.parse(element.closest('.order').querySelector('.json').innerText)
 
         // const partsElement = this.closest('.parts')
         // const orderInfoElement = this.closest('.order-info')
@@ -136,13 +142,14 @@ window.onload = async function () {
         //     inputLocation = 'order'
         // }
 
-        console.log(orderJSON.serial)
-
         const serial = orderJSON.serial
-        const parameter = getParameter(this.classList)
+        console.log(serial)
+        const parameter = getParameter(element.classList)
         console.log(parameter)
-        const partName = getPartName(parameter, this)
-        const value = this.value
+        const partName = getPartName(parameter, element)
+        console.log(partName)
+        const value = element.value
+        console.log(value)
 
 
 
@@ -154,19 +161,12 @@ window.onload = async function () {
             body: JSON.stringify({
                 serial,
                 partName,
-                parameter,
+                parameter: convertCase(parameter, 'camel'),
                 value,
             })
         })
 
 
-    });
-
-
-
-    //Stop Click Event Propagation
-    inputElement.addEventListener('click', function(event) {
-        event.stopPropagation();
     });
 });
 }
@@ -182,13 +182,32 @@ window.onload = async function () {
 
 function getParameter(classList) {
     const classesArray = [...classList]
-    console.log(classesArray)
-    
-    for (let obj of editableParameters) {
-        for (let key of classesArray) {
-            if (obj.hasOwnProperty(key)) {
-                return obj[key]
-            }
-        }
+    return classesArray[classesArray.length - 1]
+}
+
+
+
+function getPartName(parameter, element) {
+    if (parameter === 'order-status') {
+        return null
+    } else {
+        return element.closest('tr').querySelector('.part-name').innerText
     }
 }
+
+
+
+function convertCase(str, toCase) {
+    const isKebab = str.includes('-');
+    const isCamel = /[a-z][A-Z]/.test(str);
+    
+    if (toCase === 'camel') {
+      if (isCamel) return str; // Already in camelCase
+      return str.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase());
+    } else if (toCase === 'kebab') {
+      if (isKebab) return str; // Already in kebab-case
+      return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+    } else {
+      return 'Invalid case type';
+    }
+  }
