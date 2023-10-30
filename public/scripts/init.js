@@ -7,15 +7,15 @@ const URL = `${window.location.protocol}//${window.location.hostname}${window.lo
 
 window.onload = async function () {
     try {
-        const response = await fetch(URL + '/orders')
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText)
+        const ordersResponse = await fetch(URL + '/orders')
+        if (!ordersResponse.ok) {
+            throw new Error('Network response was not ok ' + ordersResponse.statusText)
         }
-        ordersArray = await response.json()
+        ordersArray = await ordersResponse.json()
 
         const ordersDiv = document.getElementById('orders')
 
-        ordersArray.forEach((order, index) => {
+        ordersArray.forEach((order) => {
             const orderDiv = document.createElement('div')
             const orderInfoDiv = document.createElement('div')
             const partsDiv = document.createElement('div')
@@ -52,7 +52,7 @@ window.onload = async function () {
                             <td class="order-data order-status">
                                 <select class="custom-select order-status">
                                     ${orderStatusOptions.map(opt => `
-                                        <option${opt === order.status ? ' selected' : ''}>${opt}</option>
+                                        <option${opt === order.orderStatus ? ' selected' : ''}>${opt}</option>
                                     `).join('')}
                                 </select>    
                             </td>
@@ -80,7 +80,7 @@ window.onload = async function () {
                             <td class="part-data part-status">
                                 <select class="custom-select part-status">
                                     ${partStatusOptions.map(opt => `
-                                        <option${opt === order.status ? ' selected' : ''}>${opt}</option>
+                                        <option${opt === part.partStatus ? ' selected' : ''}>${opt}</option>
                                     `).join('')}
                                 </select>
                             </td>
@@ -114,7 +114,7 @@ window.onload = async function () {
     const dateElements = document.querySelectorAll('input[type="date"]')
     const inputElements = [...selectElements, ...dateElements]
     inputElements.forEach(function(inputElement) {
-    inputElement.addEventListener('change', function(event) {
+    inputElement.addEventListener('change', async function(event) {
         const element = event.target
 
         //Blur Element
@@ -129,44 +129,39 @@ window.onload = async function () {
 
 
         //Make Change Request to Server
+        const jsonDiv = element.closest('.order').querySelector('.json')
+        let orderJSON = JSON.parse(jsonDiv.innerText)
 
-        let orderJSON = JSON.parse(element.closest('.order').querySelector('.json').innerText)
-
-        // const partsElement = this.closest('.parts')
-        // const orderInfoElement = this.closest('.order-info')
-        // if (partsElement) {
-        //     orderJSON = partsElement.parentNode.querySelector('.json').innerText
-        //     inputLocation = 'parts'
-        // } else if (orderInfoElement) {
-        //     orderJSON = orderInfoElement.parentNode.querySelector('.json').innerText
-        //     inputLocation = 'order'
-        // }
-
-        const serial = orderJSON.serial
-        console.log(serial)
         const parameter = getParameter(element.classList)
-        console.log(parameter)
         const partName = getPartName(parameter, element)
-        console.log(partName)
         const value = element.value
-        console.log(value)
+
+        if (parameter === 'order-status') {
+            orderJSON.orderStatus = value
+        } else if (partName) {
+            for (i = 0; i < orderJSON.parts.length; i++) {
+                if (orderJSON.parts[i].name === partName) {
+                    orderJSON.parts[i][convertCase(parameter, 'camel')] = value
+                    break
+                }
+            }
+        }
 
 
-
-        fetch('http://localhost:5500/editOrder', {
+        //Send Edit Parameters to
+        const editOrderResponse = await fetch(URL + '/editOrder', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                serial,
-                partName,
-                parameter: convertCase(parameter, 'camel'),
-                value,
-            })
+            body: JSON.stringify({orderJSON})
         })
-
-
+        if (editOrderResponse.ok) {
+            jsonDiv.innerText = JSON.stringify(orderJSON)
+            console.log(`Edited ${orderJSON.customer} Order Successfully`)
+        } else {
+            console.log(`Error Editing ${orderJSON.customer} Order`)
+        }
     });
 });
 }

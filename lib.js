@@ -10,34 +10,36 @@ const getOrders = () => {
     })
 }
 
-const updateOrders = (orders) => {
-    return new Promise(res => {
-        fs.writeFileSync('./database/Mock Orders Array.json', JSON.stringify(orders, null, 4), 'utf8')
-        res()
+
+
+const getOrder = (serial) => {
+    return new Promise(async res => {
+        const ordersArray = await getOrders()
+
+        const order = ordersArray.find(order => {
+            return(order.serial == serial)
+        })
+
+        res(order)
     })
 }
 
 
 
-function makeUpdatedOrder(orders, serial, partName = null, param, newValue) {
-    for (let i = 0; i < orders.length; i++) {
-        if (orders[i].serial == serial) {
-            console.log('Found Order with serial')
-            if (partName) {
-                // Update a property within the parts array
-                for (let j = 0; j < orders[i].parts.length; j++) {
-                    if (orders[i].parts[j].name === partName) {
-                        orders[i].parts[j][param] = newValue
-                        return orders
-                    }
-                }
-            } else {
-                // Update a top-level property
-                orders[i][param] = newValue
-                return orders
+const updateOrder = (order) => {
+    return new Promise(async res => {
+        const ordersArray = await getOrders()
+
+        for(let i = 0; i < ordersArray.length; i++) {
+            if(ordersArray[i].serial === order.serial) {
+                ordersArray[i] = order
+                break;
             }
         }
-    }
+
+        fs.writeFileSync('./database/Mock Orders Array.json', JSON.stringify(ordersArray, null, 4), 'utf8')
+        res()
+    })
 }
 
 
@@ -51,6 +53,6 @@ function makeUpdatedOrder(orders, serial, partName = null, param, newValue) {
 
 module.exports = {
     getOrders,
-    makeUpdatedOrder,
-    updateOrders,
+    getOrder,
+    updateOrder,
 }

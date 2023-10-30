@@ -14,30 +14,42 @@ app.get('/', (req, res) => {
 
 
 app.get('/orders', async (req, res) => {
-    const ordersArray = await TDH.getOrders()
-    res.send(ordersArray)
-    console.log('Sent Orders to Client')
+    try {
+        const ordersArray = await TDH.getOrders()
+        res.status(200).send(ordersArray)
+        console.log('Sent All Orders to Client')
+    } catch (err) {
+        res.status(500).send('Internal TDH Server Error')
+        console.log(err)
+        console.log(`Failed to Respond With Orders Array`)
+    }
+})
+
+app.get('/order', async (req, res) => {
+    try {
+        const serial = req.query.serial
+        const order = await TDH.getOrder(serial)
+        res.status(200).send(order)
+        console.log('Sent Order to Client')
+    } catch (err) {
+        res.status(500).send('Internal TDH Server Error')
+        console.log(err)
+        console.log(`Failed to Respond With Order`)
+    }
 })
 
 
 
 app.put('/editOrder', async (req, res) => {
     try {
-        const serial = req.body.serial
-        const partName = req.body.partName
-        const parameter = req.body.parameter
-        const value = req.body.value
-    
-        let ordersArray = await TDH.getOrders()
+        const editedOrder = req.body.orderJSON
 
-        ordersArray = TDH.makeUpdatedOrder(ordersArray, serial, partName, parameter, value)
+        await TDH.updateOrder(editedOrder)
 
-        await TDH.updateOrders(ordersArray)
-
-        res.send({ "ok": true })
-        console.log(`Edited Order: ${serial} "${parameter}" to => ${value}`)
+        res.status(200).send('Edited Order Successfully')
+        console.log(`Edited Order: ${editedOrder.serial}`)
     } catch (err) {
-        res.send({ "ok": false })
+        res.status(500).send('Internal TDH Server Error')
         console.log(err)
         console.log(`Failed to Edit Order`)
     }
