@@ -14,13 +14,13 @@
         "parts": [
             {
                 "name": "Custom Pipe Racks",
-                "assignee": "Jason",
+                "assignee": "Dakota",
                 "assignDate": "2023-10-20",
-                "partStatus": "Unfinished"
+                "partStatus": "Done"
             },
             {
                 "name": "Passenger Side Full Box",
-                "assignee": "Jeff",
+                "assignee": "Unassigned Worker",
                 "assignDate": "2023-11-10",
                 "partStatus": "Done"
             },
@@ -57,7 +57,7 @@
             {
                 "name": "Side Gate",
                 "assignee": "Unassigned Worker",
-                "assignDate": "",
+                "assignDate": "2023-10-31",
                 "partStatus": "Unfinished"
             }
         ]

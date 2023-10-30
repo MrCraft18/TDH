@@ -151,7 +151,7 @@ window.onload = async function () {
 
 
         //Send Edit Parameters to
-        const editOrderResponse = await fetch('/editOrder', orderJSON)
+        const editOrderResponse = await serverRequest('editOrder', orderJSON)
         if (editOrderResponse.ok) {
             jsonDiv.innerText = JSON.stringify(orderJSON)
             console.log(`Edited ${orderJSON.customer} Order Successfully`)

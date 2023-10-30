@@ -49,6 +49,7 @@ io.on('connection', (socket) => {
 
     socket.on('editOrder', async body => {
         try {
+            console.log('edit order message')
             const editedOrder = body
     
             await TDH.updateOrder(editedOrder)
@@ -66,4 +67,8 @@ io.on('connection', (socket) => {
             console.log(`Failed to Edit Order`)
         }
     })
+
+
+
+    socket.on('order',)
 })
