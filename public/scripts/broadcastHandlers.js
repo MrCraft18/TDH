@@ -1,12 +1,14 @@
 socket.on('editOrderBroadcast', body => {
     try {
-        const order = body.order
+        const editedOrder = body.order
 
         const jsonElements = [...document.querySelectorAll('.json')]
         const jsonElement = jsonElements.find(element => {
             const orderJSON = JSON.parse(element.innerText)
-            return (orderJSON.serial == order.serial) 
+            return (orderJSON.serial == editedOrder.serial) 
         })
+
+        //BRUUUUUUUUUUUUUUUUUUUUUUUUH
 
         const orderDiv = jsonElement.closest('.order')
         const selectElements = orderDiv.querySelectorAll('.custom-select');
@@ -14,17 +16,26 @@ socket.on('editOrderBroadcast', body => {
         const inputElements = [...selectElements, ...dateElements]
 
         inputElements.forEach(element => {
-            const parameter = convertCase(getParameter(element.classList), camel)
+            const parameter = convertCase(getParameter(element.classList), "camel")
 
             if (element.closest('.parts')) {
+                const partName = element.closest('tr').querySelector('.part-name').innerText
 
+                for (i = 0; i < editedOrder.parts.length; i++) {
+                    if (editedOrder.parts[i].name === partName) {
+                        if (editedOrder.parts[i][parameter]) {
+                            element.value = editedOrder.parts[i][parameter]
+                        }
+                        break
+                    }
+                }
             } else {
-                element.value = order[parameter]
+                element.value = editedOrder[parameter]
             }
         })
     } catch (err) {
         console.log(err)
         console.log(`Error Editing Order from Broadcast`)
-        // location.reload(true)
+        //location.reload(true)
     }
 })

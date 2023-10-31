@@ -14,13 +14,13 @@
         "parts": [
             {
                 "name": "Custom Pipe Racks",
-                "assignee": "Caden",
+                "assignee": "Dakota",
                 "assignDate": "2023-10-07",
                 "partStatus": "Unfinished"
             },
             {
                 "name": "Passenger Side Full Box",
-                "assignee": "Dakota",
+                "assignee": "Caden",
                 "assignDate": "",
                 "partStatus": "Unfinished"
             },
@@ -32,31 +32,31 @@
             },
             {
                 "name": "24\" Undermount Box",
-                "assignee": "Unassigned Worker",
+                "assignee": "Caden",
                 "assignDate": "",
                 "partStatus": "Unfinished"
             },
             {
                 "name": "TDH Hydraulic Tank",
-                "assignee": "Unassigned Worker",
+                "assignee": "Caden",
                 "assignDate": "",
                 "partStatus": "Unfinished"
             },
             {
                 "name": "Control Panel Cover",
-                "assignee": "Unassigned Worker",
+                "assignee": "Orion",
                 "assignDate": "",
                 "partStatus": "Unfinished"
             },
             {
                 "name": "Pins",
-                "assignee": "Unassigned Worker",
+                "assignee": "Jeff",
                 "assignDate": "",
                 "partStatus": "Unfinished"
             },
             {
                 "name": "Side Gate",
-                "assignee": "Unassigned Worker",
+                "assignee": "Dakota",
                 "assignDate": "",
                 "partStatus": "Unfinished"
             }
@@ -78,43 +78,43 @@
             {
                 "name": "Custom Pipe Racks",
                 "assignee": "Caden",
-                "assignDate": "",
+                "assignDate": "2023-10-31",
                 "partStatus": "Done"
             },
             {
                 "name": "Driver Side Full Box",
                 "assignee": "Caden",
-                "assignDate": "",
+                "assignDate": "2023-10-31",
                 "partStatus": "Unfinished"
             },
             {
                 "name": "Driver Side Half Box",
                 "assignee": "Unassigned Worker",
-                "assignDate": "",
+                "assignDate": "2023-10-31",
                 "partStatus": "Done"
             },
             {
                 "name": "24\" Undermount Box",
                 "assignee": "Unassigned Worker",
-                "assignDate": "",
+                "assignDate": "2023-10-12",
                 "partStatus": "Unfinished"
             },
             {
                 "name": "TDH Hydraulic Tank",
                 "assignee": "Unassigned Worker",
-                "assignDate": "",
+                "assignDate": "2023-10-31",
                 "partStatus": "Unfinished"
             },
             {
                 "name": "Valve Bank Cover",
                 "assignee": "Unassigned Worker",
-                "assignDate": "",
+                "assignDate": "2023-10-25",
                 "partStatus": "Unfinished"
             },
             {
                 "name": "Pins",
                 "assignee": "Unassigned Worker",
-                "assignDate": "",
+                "assignDate": "2023-10-31",
                 "partStatus": "Unfinished"
             },
             {
