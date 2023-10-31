@@ -6,6 +6,8 @@ let dragTimer = null;
 
 const orderList = document.querySelector("#orders");
 
+
+
 const startDrag = (e) => {
     const order = e.target.closest(".order");
     if (order) {
@@ -60,7 +62,7 @@ document.addEventListener("touchmove", moveDrag, { passive: false });
 
 
 
-endDrag = () => {
+const endDrag = async () => {
     clearTimeout(dragTimer);
     if (currentOrder) {
         currentOrder.classList.remove("dragging");
@@ -68,6 +70,21 @@ endDrag = () => {
         currentOrder = null;
         isDragging = false;
         document.body.style.userSelect = "auto";
+
+        const jsonElements = [...document.querySelectorAll('.json')]
+        const ordersArray = []
+    
+        jsonElements.forEach(element => {
+            ordersArray.push(JSON.parse(element.innerText))
+        })
+    
+        const rearrangeOrdersResponse = await serverRequest('rearrangeOrders', ordersArray)
+        if (rearrangeOrdersResponse.ok) {
+            console.log(`Rearranged Orders Successfully`)
+        } else {
+            console.log(`Error Rearranging Orders. Reloading Page...`)
+            location.reload(true)
+        }
     }
 
     let orderSibilings = [

@@ -26,11 +26,11 @@ io.on('connection', (socket) => {
 
 
 
-    socket.on('queryAllOrders', async () => {
+    socket.on('queryAllOrders', async (body, res) => {
         try {
             const ordersArray = await TDH.getOrders()
 
-            socket.emit('queryAllOrders', {
+            res({
                 ok: true,
                 body: ordersArray
             })
@@ -38,8 +38,8 @@ io.on('connection', (socket) => {
             console.log('Sent All Orders')
         } catch (err) {
             console.log(err)
-            console.log('Failed Send All Orders')
-            socket.emit('queryAllOrders', {
+            console.log('Failed to Send All Orders')
+            res({
                 ok: false
             })
         }
@@ -47,20 +47,23 @@ io.on('connection', (socket) => {
 
 
 
-    socket.on('editOrder', async body => {
+    socket.on('editOrder', async (body, res) => {
         try {
-            console.log('edit order message')
-            const editedOrder = body
+            const editedOrder = body.order
     
             await TDH.updateOrder(editedOrder)
     
-            socket.emit('editOrder', {
+            res({
                 ok: true
             })
 
             console.log(`Edited Order: ${editedOrder.serial}`)
+
+            socket.broadcast.emit('editOrderBroadcast', {order: editedOrder, changedParameter: body.changedParameter})
+
+            console.log('Broadcasted Edit')
         } catch (err) {
-            socket.emit('editOrder', {
+            res({
                 ok: false
             })
             console.log(err)
@@ -70,5 +73,32 @@ io.on('connection', (socket) => {
 
 
 
-    socket.on('order',)
+    socket.on('rearrangeOrders', async (body, res) => {
+        try {
+            const oldOrdersArrangement = await TDH.getOrders()
+            const newOrdersArrangement = body
+
+            if (JSON.stringify(oldOrdersArrangement) !== JSON.stringify(newOrdersArrangement)) {
+                TDH.rearrangeOrders(newOrdersArrangement)
+
+                console.log('Rearranged Orders Successfully')
+
+                socket.broadcast.emit('rearrangeOrdersBroadcast', editedOrder)
+    
+                console.log('Broadcasted Rearranged Orders')
+            } else {
+                console.log("Didn't Need to Rearrange Orders")
+            }
+
+            res({
+                ok: true
+            })
+        } catch (err) {
+            res({
+                ok: false
+            })
+            console.log(err)
+            console.log(`Failed to Rearrange Orders`)
+        }
+    })
 })
