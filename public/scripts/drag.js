@@ -83,7 +83,7 @@ const endDrag = async () => {
             console.log(`Rearranged Orders Successfully`)
         } else {
             console.log(`Error Rearranging Orders. Reloading Page...`)
-            location.reload(true)
+            // location.reload(true)
         }
     }
 

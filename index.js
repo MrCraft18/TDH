@@ -83,7 +83,7 @@ io.on('connection', (socket) => {
 
                 console.log('Rearranged Orders Successfully')
 
-                socket.broadcast.emit('rearrangeOrdersBroadcast', editedOrder)
+                socket.broadcast.emit('rearrangeOrdersBroadcast', newOrdersArrangement)
     
                 console.log('Broadcasted Rearranged Orders')
             } else {

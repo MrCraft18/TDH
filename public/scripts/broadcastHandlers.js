@@ -39,3 +39,22 @@ socket.on('editOrderBroadcast', body => {
         //location.reload(true)
     }
 })
+
+
+
+socket.on('rearrangeOrdersBroadcast', body => {
+    try {
+        const newOrdersArrangement = body
+
+        const ordersDiv = document.getElementById('orders')
+    
+        newOrdersArrangement.forEach((order, index) => {
+            const orderDiv = document.getElementById(order.serial)
+            ordersDiv.appendChild(orderDiv)
+        })
+    } catch (err) {
+        console.log(err)
+        console.log(`Error Rearranging Orders from Broadcast`)
+        //location.reload(true)
+    }
+})

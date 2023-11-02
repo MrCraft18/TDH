@@ -23,6 +23,7 @@ window.onload = async function () {
             const partsDiv = document.createElement('div')
             const jsonDiv = document.createElement('div')
 
+            orderDiv.id = order.serial
             jsonDiv.innerText = JSON.stringify(order)
 
             orderInfoDiv.classList.add('order-info');
