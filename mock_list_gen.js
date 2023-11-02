@@ -4,6 +4,10 @@ const names = [
     "John Smith",
     "Jane Doe",
     "Michael Johnson",
+    "Zach Jones",
+    "Jack Ward",
+    "Ethan Kentner",
+    "Jermey Monroe"
 ]
 
 
