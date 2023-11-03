@@ -1,3 +1,7 @@
+const socket = io()
+
+
+
 socket.on('editOrderBroadcast', body => {
     try {
         const editedOrder = body.order

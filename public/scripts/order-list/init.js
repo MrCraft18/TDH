@@ -5,8 +5,6 @@ let workerOptions = ['Dakota', 'Caden', 'Jeff', 'Orion', 'Jason', 'Unassigned Wo
 
 const URL = `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':' + window.location.port : ''}`
 
-const socket = io()
-
 window.onload = async function () {
     try {
         const ordersResponse = await serverRequest('queryAllOrders')

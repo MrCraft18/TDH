@@ -1,4 +1,5 @@
 const TDH = require('./lib.js')
+const excel = require('./excelLib.js')
 const express = require('express')
 const socketIo = require('socket.io')
 
@@ -17,7 +18,7 @@ const io = socketIo(server)
 
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html')
+    res.sendFile(__dirname + '/public/order-list.html')
 })
 
 
