@@ -115,17 +115,17 @@ window.onload = async function () {
     const dateElements = document.querySelectorAll('input[type="date"]')
     const inputElements = [...selectElements, ...dateElements]
     inputElements.forEach(function(inputElement) {
+
+    //Stop Click Event Propagation
+    inputElement.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+
     inputElement.addEventListener('change', async function(event) {
         const element = event.target
 
         //Blur Element
         element.blur();
-
-
-        //Stop Click Event Propagation
-        inputElement.addEventListener('click', function(event) {
-            event.stopPropagation();
-        });
 
 
 

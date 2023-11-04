@@ -36,8 +36,8 @@ const moveDrag = (e) => {
         if (e.type === 'touchmove') e.preventDefault();
         const clientY = e.type === "touchmove" ? e.touches[0].clientY : e.clientY;
         let newTop = clientY - (initY - offsetY);;
-        if (newTop < 52) {
-            newTop = 52;
+        if (newTop < document.querySelector('#navbar').offsetHeight) {
+            newTop = document.querySelector('#navbar').offsetHeight;
         }
 
         currentOrder.style.top = newTop + "px";

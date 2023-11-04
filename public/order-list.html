@@ -9,48 +9,97 @@
     <style>
         body {
             margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(187, 187, 187);
         }
 
-        header {
-            background-color: #333;
+        #navbar {
+            background-color: #434945;
             color: white;
-            text-align: center;
-            padding: 1px;
+            font-size: clamp(14px, 2vw, 22px);
+            position: fixed;
+            width: 100%;
+            z-index: 1;
         }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
+        .navbar-container {
+            padding: clamp(6px, 0.75vw, 10px) 0;
+            align-items: center;
+            display: flex;
+            height: 100%;
+            justify-content: space-between;
         }
 
-        nav ul li {
-            display: inline-flex;
-            margin-right: 20px;
+        .navbar-section {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
         }
 
-        nav ul li a {
-            color: white;
+        .navbar-item {
+            padding: 0 clamp(5px, 1vw, 15px);
+        }
+
+        .logo {
+            width: clamp(56px, 5vw, 100px);
+            height: auto;
+        }
+
+        a {
             text-decoration: none;
+            color: inherit;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-focus-ring-color: transparent;
+            outline: none;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Logo</a></li>
-                <li><a href="#">Aluminum Department</a></li>
-                <li><a href="/order-list.html">Order List</a></li>
-                <li><a href="#">Work Schedule</a></li>
-                <li><a href="/add-order.html">Add Order</a></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="navbar">
+        <div class="navbar-container">
+            <div class="navbar-section">
+                <div class="navbar-item">
+                    <img src="./icons/TDH-black.png" class="logo">
+                </div>
 
-    <div id="orders"></div>
+                <div class="navbar-item">
+                    Aluminum Department
+                </div>
+            </div>
 
+            <div class="navbar-section">
+                <div class="navbar-item">
+                    <a href="/order-list.html">Order List</a>
+                </div>
+
+                <div class="navbar-item">
+                    <a href="/work-scheudle.html">Work Schedule</a>
+                </div>
+
+                <div class="navbar-item">
+                    <a href="/add-order.html">Add Order</a>
+                </div>
+            </div>
+
+            <div class="navbar-section">
+                <div class="navbar-item">
+                    <img src="./icons/settings.png" width="32" height="32">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="body">
+        <div id="orders"></div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            var navbarHeight = document.querySelector('#navbar').offsetHeight;
+            document.querySelector('#body').style.paddingTop = navbarHeight + 'px';
+        });
+    </script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./scripts/broadcastHandlers.js"></script>
     <script src="./scripts/lib.js"></script>

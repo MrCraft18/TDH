@@ -1,0 +1,32 @@
+.import-box {
+    color: black;
+    border: 2px dashed black;
+    text-align: center;
+    padding: 90px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 40px;
+    font-size: 22px;
+    cursor: pointer;
+    background-color: rgb(24, 151, 92);
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-button {
+    margin-top: 20px;
+    background-color: rgb(97, 201, 83);
+    width: 80px;
+    height: 50px;
+    text-align: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.upload-button:hover {
+    background-color: rgb(51, 109, 44);
+}

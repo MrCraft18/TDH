@@ -2,8 +2,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: clamp(14px, 1.6vw, 20px);
 }
 
 .orders {
@@ -14,7 +13,8 @@ table {
     transition: margin 0.25s;
     box-sizing: border-box;
     position: relative;
-    background: white;
+    color: black;
+    background: rgb(187, 187, 187);
 }
 
 .order.dragging {
@@ -24,9 +24,9 @@ table {
 }
 
 .order-body {
-    box-shadow: 0 -1px 0 black, 0 1px 0 black;
+    box-shadow: 0 -1px 0 rgb(85, 85, 85), 0 1px 0 rgb(85, 85, 85);
     display: table-row-group;
-    height: 55px;
+    height: clamp(50px, 13vh, 80px);
     cursor: pointer;
 }
 
@@ -41,14 +41,14 @@ table {
 .order-data:first-child {
     text-align: left;
     width: 30%;
-    padding: 0 15px;
+    padding-left: clamp(10px, 1.5vw, 20px);
     text-overflow: ellipsis;
 }
 
 .order-data:last-child {
     text-align: right;
     width: 10%;
-    padding: 0px 5px;
+    padding-right: 15px;
 }
 
 .parts {
@@ -58,8 +58,8 @@ table {
 }
 
 .part-data {
-    border-bottom: 1px solid black;
-    padding: 5px 0px;
+    border-bottom: 1px solid rgb(85, 85, 85);
+    padding: 0.5vw 0;
     text-align: center;
     vertical-align: middle;
     white-space: nowrap;
@@ -69,46 +69,38 @@ table {
 .part-data:first-child {
     text-align: left;
     width: 40%;
-    padding-left: 4px;
+    padding-left: 0.4vw;
 }
 
 .part-data:last-child {
     text-align: right;
     width: 13%;
-}
-
-.json {
-    display: none;
+    padding-right: 0.8vw;
 }
 
 input[type="date"],
 .custom-select {
     font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: clamp(14px, 1.6vw, 20px);
+    color: white;
+    border: none;
+    background: rgb(100, 100, 100);
+    border: 1px solid transparent;
+    border-radius: 0.5vw;
+    outline: none;
 }
 
 .custom-select {
-    appearance: none;
     padding-left: 6px;
     padding-right: 6px;
-    background: transparent;
-    border: 1px solid transparent;
-    outline: none;
-    color: #000;
-}
-
-.custom-select:focus {
-    border-color: #000;
 }
 
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="date"]::-webkit-clear-button {
     -webkit-appearance: none;
-    color: #000;
 }
 
-input[type="date"] {
-    border: none;
-    color: #000;
+.json {
+    display: none;
 }
