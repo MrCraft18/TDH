@@ -48,6 +48,27 @@ io.on('connection', (socket) => {
 
 
 
+    socket.on('queryWorkers', async (body, res) => {
+        try {
+            const workersArray = await TDH.getWorkers()
+
+            res({
+                ok: true,
+                body: workersArray
+            })
+
+            console.log('Sent Workers')
+        } catch (err) {
+            console.log(err)
+            console.log('Failed to Send Workers')
+            res({
+                ok: false
+            })
+        }
+    })
+
+
+
     socket.on('editOrder', async (body, res) => {
         try {
             const editedOrder = body.order
@@ -100,6 +121,34 @@ io.on('connection', (socket) => {
             })
             console.log(err)
             console.log(`Failed to Rearrange Orders`)
+        }
+    })
+
+
+
+    socket.on('excelUpload', async (body, res) => {
+        try {
+            const fileName = body.fileName
+            const fileData = body.fileData
+            const date = body.date
+
+            console.log(`Recieved File: ${fileName} With Upload Date: ${date}`)
+
+            const orderJSON = await excel.parseOrder(fileData, date)
+
+            // console.log(orderJSON)
+
+            ordersArray = await TDH.addOrder(orderJSON)
+
+            res({
+                ok: true
+            })
+        } catch (err) {
+            res({
+                ok: false
+            })
+            console.log(err)
+            console.log(`Failed to do something with excel file`)
         }
     })
 })

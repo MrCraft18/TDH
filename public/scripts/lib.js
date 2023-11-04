@@ -1,3 +1,18 @@
+const socket = io()
+
+
+
+function convertDateToISOFormat(dateString) {
+    const [month, day, year] = dateString.split('/');
+  
+    // Construct the ISO date string
+    const isoDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+  
+    return isoDate;
+}
+
+
+
 function serverRequest (endpoint, body = null) {
     return new Promise((resolve, reject) => {
         try {
@@ -43,3 +58,21 @@ function convertCase(str, toCase) {
         return 'Invalid case type';
     }
 }
+
+
+
+  function convertDateToReadFormat(dateString) {
+    // Parse the date parts
+    const [year, month, day] = dateString.split('-');
+  
+    // Construct a new Date object using UTC time
+    const date = new Date(Date.UTC(year, month - 1, day));
+  
+    // Format the date as MM/DD/YYYY
+    return date.toLocaleDateString('en-US', {
+      timeZone: 'UTC', // This ensures we ignore local timezone offsets
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    });
+  }

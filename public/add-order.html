@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TDH Manufacturing</title>
+    <title>Aluminum Department</title>
+    <link rel="icon" href="/icons/TDH-icon.png" type="image/x-icon">
     <link rel="stylesheet", type="text/css" href="add-order.css">
     <style>
         body {
@@ -74,7 +75,7 @@
                 </div>
 
                 <div class="navbar-item">
-                    <a href="/work-scheudle.html">Work Schedule</a>
+                    <a href="/work-schedule.html">Work Schedule</a>
                 </div>
 
                 <div class="navbar-item">
@@ -84,7 +85,7 @@
 
             <div class="navbar-section">
                 <div class="navbar-item">
-                    <img src="./icons/settings.png" width="32" height="32">
+                    <!-- <img src="./icons/settings.png" width="32" height="32"> -->
                 </div>
             </div>
         </div>
@@ -96,7 +97,7 @@
 
             <input type="file" id="file-input" accept=".xls, .xlsx" style="display:none;" onchange="fileSelected(event);"/>
 
-            <div class="upload-button" onclick="sendFile()">
+            <div class="upload-button" onclick="sendFile(event)">
                 <span>Upload</span>
             </div>
         </div>
@@ -110,7 +111,6 @@
         });
     </script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="./scripts/broadcastHandlers.js"></script>
     <script src="./scripts/lib.js"></script>
     <script src="./scripts/add-order/init.js"></script>
 </body>

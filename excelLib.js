@@ -1,8 +1,8 @@
 const ExcelJS = require('exceljs')
 
-async function parseOrder(clientDate) {
+async function parseOrder(file, clientDate) {
     const workbook = new ExcelJS.Workbook()
-    await workbook.xlsx.readFile('./reference/Excel/HH10K122024-30_Ace Drilling .xlsx')
+    await workbook.xlsx.load(file)
     
     const worksheet = workbook.worksheets[0] // Assuming you're working with the first sheet
 
@@ -19,7 +19,7 @@ async function parseOrder(clientDate) {
             parameter: 'serial and type',
             target: 'Serial',
             action: (string) => {
-                console.log('Found Serial: ' + string)
+                // console.log('Found Serial: ' + string)
                 orderJSON.serial = string
 
                 if (string.startsWith('HH')) {
@@ -33,7 +33,7 @@ async function parseOrder(clientDate) {
             parameter: 'customer',
             target: 'Customer',
             action: (string) => {
-                console.log('Found Customer: ' + string)
+                // console.log('Found Customer: ' + string)
                 orderJSON.customer = string
             }
         },
@@ -41,7 +41,7 @@ async function parseOrder(clientDate) {
             parameter: 'bodyType',
             target: 'Truck Body-',
             action: (string) => {
-                console.log('Found Body Type: ' + string)
+                // console.log('Found Body Type: ' + string)
 
                 if (string.includes('SB')) {
                     orderJSON.bodyType = string.replace(/ALU DL SB/, 'Service Body')
@@ -54,7 +54,7 @@ async function parseOrder(clientDate) {
             parameter: 'Driver Parts',
             target: 'Drive Side-',
             action: (string) => {
-                console.log('Found Driver Part: ' + string)
+                // console.log('Found Driver Part: ' + string)
 
                 if (string.includes('Utility')) {
                     partsArray.push({
@@ -88,7 +88,7 @@ async function parseOrder(clientDate) {
             parameter: 'Passenger Parts',
             target: 'Pass Side-',
             action: (string) => {
-                console.log('Found Passenger Part: ' + string)
+                // console.log('Found Passenger Part: ' + string)
 
                 if (string.includes('Utility')) {
                     partsArray.push({
@@ -135,9 +135,7 @@ async function parseOrder(clientDate) {
 
     dateObj = worksheet.getCell('H6').text ? new Date(worksheet.getCell('H6').text) : ""
 
-    if (clientDate) {
-        orderJSON.dates.dateUpdated
-    }
+    orderJSON.dates.lastUpload = clientDate
     orderJSON.dates.finishDate = dateObj.toLocaleString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric', timeZone: 'UTC' })
 
     orderJSON.orderStatus = 'Not Started'
@@ -232,7 +230,7 @@ async function parseOrder(clientDate) {
 
     orderJSON.parts = partsArray
 
-    console.log(orderJSON)
+    return orderJSON
 }
 
 

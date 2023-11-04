@@ -1,15 +1,19 @@
+let globalFile
+
 function uploadFile() {
     document.getElementById('file-input').click();
 }
 
 function fileSelected(event) {
-    var file = event.target.files[0];
+    const file = event.target.files[0];
+    globalFile = file
     fileImported(file)
 }
 
 function dropHandler(ev) {
     ev.preventDefault();
-    var file = ev.dataTransfer.files[0];
+    const file = ev.dataTransfer.files[0];
+    globalFile = file
     fileImported(file)
 }
 
@@ -17,7 +21,6 @@ function dragOverHandler(ev) {
     ev.preventDefault();
 }
 
-let globalFile
 function fileImported(file) {
     importBoxText = document.querySelector('.import-box').querySelector('span')
 
@@ -26,13 +29,29 @@ function fileImported(file) {
     document.querySelector('.upload-button').style.display = 'flex'
 }
 
-function sendFile() {
+function sendFile(event) {
+    event.stopPropagation();
+
     console.log('Sending File to Server')
+
+    let today = new Date();
+    let date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
+
 
     const reader = new FileReader()
     reader.readAsArrayBuffer(globalFile)
-    reader.onload = (event) => {
+    reader.onload = async (event) => {
         const fileData = event.target.result
-        serverRequest('excelUpload', { fileName: globalFile.name, fileData })
+        const response = await serverRequest('excelUpload', { fileName: globalFile.name, fileData, date })
+
+        importBoxText = document.querySelector('.import-box').querySelector('span')
+        
+        if (response.ok) {
+            console.log('Good Response')
+
+            importBoxText.innerText = `Added Order Successfully`
+        } else {
+            console.log('Bad Response')
+        }
     }
 }

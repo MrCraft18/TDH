@@ -1,35 +1,37 @@
 const fs = require('fs')
 
 const ORDERS_PATH = './database/Mock Orders Array.json'
+const WORKERS_PATH = './database/workers.json'
 
 
 
 
 
 const getOrders = () => {
-    return new Promise(res => {
-        res(JSON.parse(fs.readFileSync(ORDERS_PATH)))
-    })
+        return JSON.parse(fs.readFileSync(ORDERS_PATH))
 }
 
 
 
-const getOrder = (serial) => {
-    return new Promise(async res => {
+const getWorkers = () => {
+    return JSON.parse(fs.readFileSync(WORKERS_PATH))
+}
+
+
+
+const getOrder = async (serial) => {
         const ordersArray = await getOrders()
 
         const order = ordersArray.find(order => {
             return(order.serial == serial)
         })
 
-        res(order)
-    })
+        return order
 }
 
 
 
-const updateOrder = (order) => {
-    return new Promise(async res => {
+const updateOrder = async (order) => {
         const ordersArray = await getOrders()
 
         for(let i = 0; i < ordersArray.length; i++) {
@@ -40,19 +42,88 @@ const updateOrder = (order) => {
         }
 
         fs.writeFileSync(ORDERS_PATH, JSON.stringify(ordersArray, null, 4), 'utf8')
-        res()
-    })
 }
 
 
 
 const rearrangeOrders = (ordersArray) => {
-    return new Promise(res => {
         fs.writeFileSync(ORDERS_PATH, JSON.stringify(ordersArray, null, 4), 'utf8')
-        res()
-    })
 }
 
+
+const addOrder = async (newOrder) => {
+    const ordersArray = await getOrders()
+
+    let orderExists = false
+    ordersArray.forEach(order => {
+        if (orderExists) {
+            return
+        } else if ((order.serial == newOrder.serial)) {
+            orderExists = true
+        }
+    });
+
+    if (orderExists) {
+        const oldOrder = ordersArray.find(order => {
+            return(order.serial == newOrder.serial)
+        })
+
+        for (const prop in newOrder) {
+            if (prop !== 'orderStatus' && prop !== 'parts') {
+                oldOrder[prop] = newOrder[prop]
+            }
+        }
+
+        oldOrder.parts = newOrder.parts.map((part, index) => {
+            // Keep the properties of assignee, assignDate, and partStatus from targetObject
+            const { assignee, assignDate, partStatus } = oldOrder.parts[index] || {};
+            return {
+                ...part,
+                assignee,
+                assignDate,
+                partStatus
+            };
+
+        })
+
+        ordersArray.forEach((order, index) => {
+            if (order.serial == oldOrder.serial) {
+                ordersArray[index] = oldOrder
+            }
+
+            // console.log(ordersArray)
+
+            fs.writeFileSync(ORDERS_PATH, JSON.stringify(ordersArray, null, 4))
+
+            return ordersArray
+        }) 
+    } else {
+        const newOrderFinishDate = new Date(newOrder.dates.finishDate)
+
+        for (i = ordersArray.length - 1; i >= 0; i--) {
+            if (i == 0) {
+                ordersArray.splice(0, 0, newOrder)
+            }
+
+            if (ordersArray[i].dates.finishDate === '') {
+                continue
+            }
+
+            const existingFinishDate = new Date(ordersArray[i].dates.finishDate)
+
+            if (existingFinishDate < newOrderFinishDate) {
+                ordersArray.splice(i + 1, 0, newObject)
+                break
+            }
+        }
+
+        // console.log(ordersArray)
+
+        fs.writeFileSync(ORDERS_PATH, JSON.stringify(ordersArray, null, 4))
+
+        return ordersArray
+    }
+}
 
 
 
@@ -64,7 +135,9 @@ const rearrangeOrders = (ordersArray) => {
 
 module.exports = {
     getOrders,
+    getWorkers,
     getOrder,
     updateOrder,
     rearrangeOrders,
+    addOrder,
 }

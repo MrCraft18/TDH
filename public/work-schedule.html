@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aluminum Department</title>
     <link rel="icon" href="/icons/TDH-icon.png" type="image/x-icon">
-    <link rel="stylesheet", type="text/css" href="order-list.css">
+    <link rel="stylesheet", type="text/css" href="work-schedule.css">
     <style>
         body {
             margin: 0;
@@ -91,8 +91,46 @@
         </div>
     </div>
 
+
     <div id="body">
-        <div id="orders"></div>
+        <div class="date-container">
+            <div id="left" class="arrow" onclick="previousDay()">
+                <img src="./icons/arrow-left.png" width="38" height="38">
+            </div>
+
+            <div class="current-date">
+                11/04/2023
+            </div>
+
+            <div id="right" class="arrow" onclick="nextDay()">
+                <img src="./icons/arrow-right.png" width="38" height="38">
+            </div>
+        </div>
+
+        <div class="schedule-container">
+            <!-- <div class="worker">
+                <div class="name">Dakota</div>
+            </div>
+
+            <div class="worker">
+                <div class="name">Caden</div>
+
+                <span class="todo">This Thing</span>
+                <span class="todo">That Thing Thing</span>
+            </div>
+
+            <div class="worker">
+                <div class="name">Jeff</div>
+            </div>
+
+            <div class="worker">
+                <div class="name">Jason</div>
+            </div>
+
+            <div class="worker">
+                <div class="name">Orion</div>
+            </div> -->
+        </div>
     </div>
 
     <script>
@@ -103,8 +141,7 @@
     </script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./scripts/lib.js"></script>
-    <script src="./scripts/order-list/broadcastHandlers.js"></script>
-    <script src="./scripts/order-list/init.js"></script>
-    <script src="./scripts/order-list/drag.js"></script>
+    <script src="./scripts/work-schedule/broadcastHandlers.js"></script>
+    <script src="./scripts/work-schedule/init.js"></script>
 </body>
 </html>
