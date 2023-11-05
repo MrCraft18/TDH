@@ -55,12 +55,6 @@ window.onload = async function () {
 async function updateSchedule(ordersArray, date) {
     const workerDivs = document.querySelectorAll('.worker')
 
-    allParts = ordersArray.reduce((acc, order) => {
-        return acc.concat(order.parts)
-    }, [])
-
-
-
     workerDivs.forEach(workerDiv => {
         oldSpans = workerDiv.querySelectorAll('span')
 
@@ -68,15 +62,28 @@ async function updateSchedule(ordersArray, date) {
             span.parentNode.removeChild(span)
         })
 
-        allParts.forEach(part => {
-            if (part.assignDate === date && part.assignee === workerDiv.id) {
-                const todoSpan = document.createElement('span')
-                todoSpan.classList.add('todo')
+        ordersArray.forEach(order => {
+            let createdHeader = false
+            order.parts.forEach(part => {
+                if (part.assignDate === date && part.assignee === workerDiv.id && part.partStatus !== 'Done') {
+                    if (!createdHeader) {
+                        const headerSpan = document.createElement('span')
+                        headerSpan.classList.add('customer-header')
 
-                todoSpan.innerText = part.name
+                        headerSpan.innerText = order.customer
 
-                workerDiv.appendChild(todoSpan)
-            }
+                        workerDiv.appendChild(headerSpan)
+                        
+                        createdHeader = true
+                    }
+                    const todoSpan = document.createElement('span')
+                    todoSpan.classList.add('todo')
+    
+                    todoSpan.innerText = part.name
+    
+                    workerDiv.appendChild(todoSpan)
+                }
+            })
         })
     })
 }

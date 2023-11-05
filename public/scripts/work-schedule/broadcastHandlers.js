@@ -1,30 +1,21 @@
-socket.on('editOrderBroadcast', body => {
+socket.on('editOrderBroadcast', async body => {
     try {
-        response = serverRequest('queryAllOrders')
-        if (!response.ok) {
-            console.log('Query All Orders Response Not Ok')
-        }
+        serverRequest('queryAllOrders')
+            .then(response => {
+                if (response.ok) {
+                    ordersArray = response.body
 
-        ordersArray = response.body
-
-        updateSchedule(ordersArray, document.querySelector('.current-date').innerText)
+                    updateSchedule(ordersArray, document.querySelector('.current-date').innerText)
+                } else {
+                    console.log("Query All Orders Response is Not Ok")
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
     } catch (err) {
         console.log(err)
         console.log(`Error Editing Order from Broadcast`)
-        //location.reload(true)
-    }
-})
-
-
-
-socket.on('rearrangeOrdersBroadcast', body => {
-    try {
-        const ordersArray = body
-
-        updateSchedule(ordersArray, document.querySelector('.current-date').innerText)
-    } catch (err) {
-        console.log(err)
-        console.log(`Error Upadating Schedule from Rearrange Broadcast`)
         //location.reload(true)
     }
 })

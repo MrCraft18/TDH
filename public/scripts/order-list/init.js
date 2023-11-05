@@ -134,7 +134,6 @@ async function inputChange(event) {
     const parameter = getParameter(element.classList)
     const partName = getPartName(parameter, element)
     let value
-    console.log('start date logic')
     if (element.type === 'date') {
         const [year, month, day] = element.value.split('-');
 
@@ -149,8 +148,6 @@ async function inputChange(event) {
     } else {
         value = element.value
     }
-
-    console.log('finish date logic')
 
     if (parameter === 'order-status') {
         orderJSON.orderStatus = value
