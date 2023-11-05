@@ -1,50 +1,43 @@
 let workers
 let ordersArray
 
-window.onload = async function () {
-    try {
-        const ordersResponse = await serverRequest('queryAllOrders')
-        if (!ordersResponse.ok) {
-            throw new Error('Network response was not ok ' + ordersResponse.statusText)
-        } 
-        
-        const response = await serverRequest('queryWorkers')
-        if (!response.ok) {
-            console.log(response)
-            console.log('Workers Response was not Ok')
-        } 
-        
-        workers = await response.body
-        ordersArray = await ordersResponse.body
+window.onload = function () {
+   Promise.all([serverRequest('queryAllOrders'), serverRequest('queryWorkers')])
+        .then(([ordersResponse, workersResponse]) => {
+            if (!ordersResponse.ok || !workersResponse.ok) {
+                throw new Error('Network response was not ok');
+            } 
+            
+            const ordersArray = ordersResponse.body;
+            const workers = workersResponse.body;
+            const scheduleContainerDiv = document.querySelector('.schedule-container');
 
-        scheduleContainerDiv = document.querySelector('.schedule-container')
+            workers.forEach(worker => {
+                const workerDiv = document.createElement('div')
+                workerDiv.classList.add('worker')
+                workerDiv.id = worker
+                workerDiv.innerHTML = `
+                    <div class="name">${worker}</div>
+                `
 
-        workers.forEach(worker => {
-            const workerDiv = document.createElement('div')
-            workerDiv.classList.add('worker')
-            workerDiv.id = worker
+                scheduleContainerDiv.appendChild(workerDiv)
+            })
 
-            workerDiv.innerHTML = `
-                <div class="name">${worker}</div>
-            `
+            let today = new Date();
+            let month = String(today.getMonth() + 1).padStart(2, '0');
+            let day = String(today.getDate()).padStart(2, '0'); 
+            let year = today.getFullYear();
+            let date = month + '/' + day + '/' + year;
 
-            scheduleContainerDiv.appendChild(workerDiv)
+            document.querySelector('.current-date').innerText = date
+
+            updateSchedule(ordersArray, date)
         })
-
-        let today = new Date();
-        let month = String(today.getMonth() + 1).padStart(2, '0'); // Adds leading zero if needed
-        let day = String(today.getDate()).padStart(2, '0'); // Adds leading zero if needed
-        let year = today.getFullYear();
-        let date = month + '/' + day + '/' + year;
-
-        document.querySelector('.current-date').innerText = date
-
-        updateSchedule(ordersArray, date)
-
-        } catch (error) {
-            console.error('There has been a problem with your fetch operation:', error)
-        }
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
 }
+
 
 
 
