@@ -94,7 +94,7 @@
 
     <div id="body">
         <div class="date-container">
-            <div id="left" class="arrow" onclick="previousDay()">
+            <div id="left" class="arrow" onclick="previousDay(event)">
                 <img src="./icons/arrow-left.png" width="38" height="38">
             </div>
 
@@ -102,7 +102,7 @@
                 11/04/2023
             </div>
 
-            <div id="right" class="arrow" onclick="nextDay()">
+            <div id="right" class="arrow" onclick="nextDay(event)">
                 <img src="./icons/arrow-right.png" width="38" height="38">
             </div>
         </div>
@@ -141,7 +141,7 @@
     </script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./scripts/lib.js"></script>
-    <script src="./scripts/work-schedule/broadcastHandlers.js"></script>
     <script src="./scripts/work-schedule/init.js"></script>
+    <script src="./scripts/work-schedule/broadcastHandlers.js"></script>
 </body>
 </html>

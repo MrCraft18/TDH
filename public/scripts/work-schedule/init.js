@@ -62,6 +62,12 @@ async function updateSchedule(ordersArray, date) {
 
 
     workerDivs.forEach(workerDiv => {
+        oldSpans = workerDiv.querySelectorAll('span')
+
+        oldSpans.forEach(span => {
+            span.parentNode.removeChild(span)
+        })
+
         allParts.forEach(part => {
             if (part.assignDate === date && part.assignee === workerDiv.id) {
                 const todoSpan = document.createElement('span')
@@ -88,11 +94,39 @@ async function updateSchedule(ordersArray, date) {
 
 
 function nextDay() {
-    console.log('Clicked Next Day')
+    const dateString = document.querySelector('.current-date').innerText
+
+    let [month, day, year] = dateString.split('/').map(Number);
+    const currentDate = new Date(year, month - 1, day);  // JavaScript months are 0-based
+    currentDate.setDate(currentDate.getDate() + 1);
+
+    month = String(currentDate.getMonth() + 1).padStart(2, '0');  // Adds leading zero if needed
+    day = String(currentDate.getDate()).padStart(2, '0');  // Adds leading zero if needed
+    year = currentDate.getFullYear();
+    const newDateString = `${month}/${day}/${year}`;
+
+    console.log(newDateString);
+    document.querySelector('.current-date').innerText = newDateString
+
+    updateSchedule(ordersArray, newDateString)
 }
 
 
 
 function previousDay() {
-    console.log('Clicked Previous Day')
+    const dateString = document.querySelector('.current-date').innerText
+
+    let [month, day, year] = dateString.split('/').map(Number);
+    const currentDate = new Date(year, month - 1, day);  // JavaScript months are 0-based
+    currentDate.setDate(currentDate.getDate() - 1);
+
+    month = String(currentDate.getMonth() + 1).padStart(2, '0');  // Adds leading zero if needed
+    day = String(currentDate.getDate()).padStart(2, '0');  // Adds leading zero if needed
+    year = currentDate.getFullYear();
+    const newDateString = `${month}/${day}/${year}`;
+
+    console.log(newDateString);
+    document.querySelector('.current-date').innerText = newDateString
+
+    updateSchedule(ordersArray, newDateString)
 }
