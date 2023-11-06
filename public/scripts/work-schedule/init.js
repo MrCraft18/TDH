@@ -1,6 +1,8 @@
 let workers
 let ordersArray
 
+
+
 window.onload = function () {
    Promise.all([serverRequest('queryAllOrders'), serverRequest('queryWorkers')])
         .then(([ordersResponse, workersResponse]) => {
@@ -8,8 +10,9 @@ window.onload = function () {
                 throw new Error('Network response was not ok');
             } 
             
-            const ordersArray = ordersResponse.body;
-            const workers = workersResponse.body;
+            ordersArray = ordersResponse.body;
+            workers = workersResponse.body;
+
             const scheduleContainerDiv = document.querySelector('.schedule-container');
 
             workers.forEach(worker => {

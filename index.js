@@ -1,5 +1,5 @@
-const TDH = require('./lib.js')
-const excel = require('./excelLib.js')
+const TDH = require('./libs/lib.js')
+const excel = require('./libs/excelLib.js')
 const express = require('express')
 const socketIo = require('socket.io')
 
