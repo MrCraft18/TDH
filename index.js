@@ -8,7 +8,7 @@ app = express()
 app.use(express.json())
 app.use(express.static('public'))
 
-const port = 5500
+const port = process.env.PORT || 5500
 const server = app.listen(port, () => {
     console.log('Express server running on ' + port)
 })
