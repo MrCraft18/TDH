@@ -30,6 +30,7 @@ function fileImported(file) {
 }
 
 function sendFile(event) {
+    event.preventDefault()
     event.stopPropagation();
 
     console.log('Sending File to Server')
