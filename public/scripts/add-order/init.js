@@ -54,6 +54,8 @@ function sendFile(event) {
         } else {
             console.log('Bad Response')
 
+            console.log(response)
+
             if (response.userError) {
                 importBoxText.innerText = `${file.name}\n\n${response.err}`
             } else {
