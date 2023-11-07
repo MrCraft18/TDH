@@ -50,9 +50,15 @@ function sendFile(event) {
         if (response.ok) {
             console.log('Good Response')
 
-            importBoxText.innerText = `Added Order Successfully`
+            importBoxText.innerText = `${file.name}\n\nAdded Order Successfully`
         } else {
             console.log('Bad Response')
+
+            if(response.userError) {
+                importBoxText.innerText = `${file.name}\n\n${response.err}`
+            }
+
+            importBoxText.innerText = `${file.name}\n\nError Adding Order`
         }
     }
 }
