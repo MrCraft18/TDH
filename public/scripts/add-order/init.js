@@ -54,11 +54,11 @@ function sendFile(event) {
         } else {
             console.log('Bad Response')
 
-            if(response.userError) {
+            if (response.userError) {
                 importBoxText.innerText = `${file.name}\n\n${response.err}`
+            } else {
+                importBoxText.innerText = `${file.name}\n\nError Adding Order`
             }
-
-            importBoxText.innerText = `${file.name}\n\nError Adding Order`
         }
     }
 }
