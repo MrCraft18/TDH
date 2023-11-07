@@ -130,7 +130,7 @@ io.on('connection', (socket) => {
         try {
             const fileName = body.fileName
             const fileData = body.fileData
-            const date = body.date
+            const date = new Date(body.clientDate)
     
             console.log(`Received File: ${fileName} With Upload Date: ${date}`)
     
@@ -138,7 +138,6 @@ io.on('connection', (socket) => {
             try {
                 orderJSON = await excel.parseOrder(fileData, date);
             } catch (e) {
-                console.log(e)
                 err = JSON.parse(e.message)
                 // If parseOrder throws an error, it will be caught here
                 if (err.userError) {

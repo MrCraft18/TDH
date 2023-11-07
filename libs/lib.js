@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const ORDERS_PATH = './database/Mock Orders Array.json'
+const ORDERS_PATH = './database/orders.json'
 const WORKERS_PATH = './database/workers.json'
 
 

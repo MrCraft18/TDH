@@ -43,7 +43,7 @@ function sendFile(event) {
     reader.readAsArrayBuffer(globalFile)
     reader.onload = async (event) => {
         const fileData = event.target.result
-        const response = await serverRequest('excelUpload', { fileName: globalFile.name, fileData, date })
+        const response = await serverRequest('excelUpload', { fileName: globalFile.name, fileData, clientDate: today })
 
         importBoxText = document.querySelector('.import-box').querySelector('span')
         
@@ -59,7 +59,7 @@ function sendFile(event) {
             console.log('Bad Response')
 
             if (response.userError) {
-                importBoxText.innerText = `${globalFile.name}\n\n${response.err}`
+                importBoxText.innerText = `${globalFile.name}\n\n${JSON.stringify(response.err)}`
             } else {
                 importBoxText.innerText = `${globalFile.name}\n\nError Adding Order`
             }

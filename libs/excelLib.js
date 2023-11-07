@@ -38,7 +38,11 @@ async function parseOrder(file, clientDate) {
             target: 'Customer',
             action: (string) => {
                 // console.log('Found Customer: ' + string)
-                orderJSON.customer = string
+                if (string) {
+                    orderJSON.customer = string
+                } else {
+                    throw new Error('Missing Customer Name')  
+                }
             }
         },
         {
@@ -46,11 +50,14 @@ async function parseOrder(file, clientDate) {
             target: 'Truck Body-',
             action: (string) => {
                 // console.log('Found Body Type: ' + string)
-
-                if (string.includes('SB')) {
-                    orderJSON.bodyType = string.replace(/ALU DL SB/, 'Service Body')
+                if (string) {
+                    if (string.includes('SB')) {
+                        orderJSON.bodyType = string.replace(/ALU DL SB/, 'Service Body')
+                    } else {
+                        orderJSON.bodyType = 'Flat Bed'
+                    }
                 } else {
-                    orderJSON.bodyType = 'Flat Bed'
+                    throw new Error('Missing Body Type (Service Body, Flat Bed, etc.)')
                 }
             }
         },
@@ -59,31 +66,32 @@ async function parseOrder(file, clientDate) {
             target: 'Drive Side-',
             action: (string) => {
                 // console.log('Found Driver Part: ' + string)
-
-                if (string.includes('Utility')) {
-                    partsArray.push({
-                        name: string.replace('Utility', 'Box'),
-                        assignee: "Unassigned Worker",
-                        assignDate: "",
-                        partStatus: "Unfinished"
-                    })
-                }
-
-                if (string.includes('Pipe')) {
-                    if (string.includes('ustom')) {
+                if (string) {
+                    if (string.includes('Utility')) {
                         partsArray.push({
-                            name: "Custom Driver Pipe Rack",
+                            name: string.replace('Utility', 'Box'),
                             assignee: "Unassigned Worker",
                             assignDate: "",
                             partStatus: "Unfinished"
                         })
-                    } else {
-                        partsArray.push({
-                            name: "Driver Pipe Rack",
-                            assignee: "Unassigned Worker",
-                            assignDate: "",
-                            partStatus: "Unfinished"
-                        })
+                    }
+    
+                    if (string.includes('Pipe')) {
+                        if (string.includes('ustom')) {
+                            partsArray.push({
+                                name: "Custom Driver Pipe Rack",
+                                assignee: "Unassigned Worker",
+                                assignDate: "",
+                                partStatus: "Unfinished"
+                            })
+                        } else {
+                            partsArray.push({
+                                name: "Driver Pipe Rack",
+                                assignee: "Unassigned Worker",
+                                assignDate: "",
+                                partStatus: "Unfinished"
+                            })
+                        }
                     }
                 }
             }
@@ -93,31 +101,32 @@ async function parseOrder(file, clientDate) {
             target: 'Pass Side-',
             action: (string) => {
                 // console.log('Found Passenger Part: ' + string)
-
-                if (string.includes('Utility')) {
-                    partsArray.push({
-                        name: string.replace('Utility', 'Box'),
-                        assignee: "Unassigned Worker",
-                        assignDate: "",
-                        partStatus: "Unfinished"
-                    })
-                }
-
-                if (string.includes('Pipe')) {
-                    if (string.includes('ustom')) {
+                if (string) {
+                    if (string.includes('Utility')) {
                         partsArray.push({
-                            name: "Custom Passenger Pipe Rack",
+                            name: string.replace('Utility', 'Box'),
                             assignee: "Unassigned Worker",
                             assignDate: "",
                             partStatus: "Unfinished"
                         })
-                    } else {
-                        partsArray.push({
-                            name: "Passenger Pipe Rack",
-                            assignee: "Unassigned Worker",
-                            assignDate: "",
-                            partStatus: "Unfinished"
-                        })
+                    }
+    
+                    if (string.includes('Pipe')) {
+                        if (string.includes('ustom')) {
+                            partsArray.push({
+                                name: "Custom Passenger Pipe Rack",
+                                assignee: "Unassigned Worker",
+                                assignDate: "",
+                                partStatus: "Unfinished"
+                            })
+                        } else {
+                            partsArray.push({
+                                name: "Passenger Pipe Rack",
+                                assignee: "Unassigned Worker",
+                                assignDate: "",
+                                partStatus: "Unfinished"
+                            })
+                        }
                     }
                 }
             }
@@ -139,8 +148,16 @@ async function parseOrder(file, clientDate) {
         })
     
         dateObj = worksheet.getCell('H6').text ? new Date(worksheet.getCell('H6').text) : ""
-    
+        if (dateObj === "") {
+            throw new Error('Missing Due Date')
+        }
+
+        if (dateObj < clientDate) {
+            throw new Error('Invalid Due Date')
+        }
         orderJSON.dates.lastUpload = clientDate
+
+
         orderJSON.dates.finishDate = dateObj.toLocaleString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric', timeZone: 'UTC' })
     
         orderJSON.orderStatus = 'Not Started'
@@ -237,9 +254,9 @@ async function parseOrder(file, clientDate) {
     
         return orderJSON
     } catch (err) {
-        console.log(err)
+        console.log(err.message)
         
-        throw new Error(JSON.stringify({userError: true, err}))
+        throw new Error(JSON.stringify({userError: true, err: err.message}))
     }
 }
 
