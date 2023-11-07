@@ -48,18 +48,20 @@ function sendFile(event) {
         importBoxText = document.querySelector('.import-box').querySelector('span')
         
         if (response.ok) {
+            console.log(response)
+            
             console.log('Good Response')
 
-            importBoxText.innerText = `${file.name}\n\nAdded Order Successfully`
+            importBoxText.innerText = `${globalFile.name}\n\nAdded Order Successfully`
         } else {
-            console.log('Bad Response')
-
             console.log(response)
 
+            console.log('Bad Response')
+
             if (response.userError) {
-                importBoxText.innerText = `${file.name}\n\n${response.err}`
+                importBoxText.innerText = `${globalFile.name}\n\n${response.err}`
             } else {
-                importBoxText.innerText = `${file.name}\n\nError Adding Order`
+                importBoxText.innerText = `${globalFile.name}\n\nError Adding Order`
             }
         }
     }
