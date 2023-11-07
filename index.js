@@ -131,31 +131,40 @@ io.on('connection', (socket) => {
             const fileName = body.fileName
             const fileData = body.fileData
             const date = body.date
-
-            console.log(`Recieved File: ${fileName} With Upload Date: ${date}`)
-
-            const orderJSON = await excel.parseOrder(fileData, date)
-
-            // console.log(orderJSON)
-
-            ordersArray = await TDH.addOrder(orderJSON)
-
+    
+            console.log(`Received File: ${fileName} With Upload Date: ${date}`)
+    
+            let orderJSON;
+            try {
+                orderJSON = await excel.parseOrder(fileData, date);
+            } catch (err) {
+                // If parseOrder throws an error, it will be caught here
+                if (err.userError) {
+                    // Handle userError specifically
+                    res({
+                        ok: false,
+                        ...err
+                    });
+                    return; // Ensure no further execution in this try block
+                } else {
+                    // If it's not a userError, throw the error again to be caught by the outer catch
+                    throw err;
+                }
+            }
+    
+            // If no error occurred, continue processing
+            ordersArray = await TDH.addOrder(orderJSON);
+    
             res({
                 ok: true
-            })
+            });
         } catch (err) {
-            if (err.userError) {
-                res({
-                    ok: false,
-                    ...err
-                })
-            }
-
+            // Any other error that is not a userError will be handled here
             res({
                 ok: false
-            })
-            console.log(err)
-            console.log(`Failed to do something with excel file`)
+            });
+            console.error(err); // Use console.error for better logging of errors
+            console.log(`Failed to do something with excel file`);
         }
-    })
+    });
 })
