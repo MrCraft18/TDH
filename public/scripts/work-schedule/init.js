@@ -1,50 +1,46 @@
 let workers
 let ordersArray
 
-window.onload = async function () {
-    try {
-        const ordersResponse = await serverRequest('queryAllOrders')
-        if (!ordersResponse.ok) {
-            throw new Error('Network response was not ok ' + ordersResponse.statusText)
-        } 
-        
-        const response = await serverRequest('queryWorkers')
-        if (!response.ok) {
-            console.log(response)
-            console.log('Workers Response was not Ok')
-        } 
-        
-        workers = await response.body
-        ordersArray = await ordersResponse.body
 
-        scheduleContainerDiv = document.querySelector('.schedule-container')
 
-        workers.forEach(worker => {
-            const workerDiv = document.createElement('div')
-            workerDiv.classList.add('worker')
-            workerDiv.id = worker
+window.onload = function () {
+   Promise.all([serverRequest('queryAllOrders'), serverRequest('queryWorkers')])
+        .then(([ordersResponse, workersResponse]) => {
+            if (!ordersResponse.ok || !workersResponse.ok) {
+                throw new Error('Network response was not ok');
+            } 
+            
+            ordersArray = ordersResponse.body;
+            workers = workersResponse.body;
 
-            workerDiv.innerHTML = `
-                <div class="name">${worker}</div>
-            `
+            const scheduleContainerDiv = document.querySelector('.schedule-container');
 
-            scheduleContainerDiv.appendChild(workerDiv)
+            workers.forEach(worker => {
+                const workerDiv = document.createElement('div')
+                workerDiv.classList.add('worker')
+                workerDiv.id = worker
+                workerDiv.innerHTML = `
+                    <div class="name">${worker}</div>
+                `
+
+                scheduleContainerDiv.appendChild(workerDiv)
+            })
+
+            let today = new Date();
+            let month = String(today.getMonth() + 1).padStart(2, '0');
+            let day = String(today.getDate()).padStart(2, '0'); 
+            let year = today.getFullYear();
+            let date = month + '/' + day + '/' + year;
+
+            document.querySelector('.current-date').innerText = date
+
+            updateSchedule(ordersArray, date)
         })
-
-        let today = new Date();
-        let month = String(today.getMonth() + 1).padStart(2, '0'); // Adds leading zero if needed
-        let day = String(today.getDate()).padStart(2, '0'); // Adds leading zero if needed
-        let year = today.getFullYear();
-        let date = month + '/' + day + '/' + year;
-
-        document.querySelector('.current-date').innerText = date
-
-        updateSchedule(ordersArray, date)
-
-        } catch (error) {
-            console.error('There has been a problem with your fetch operation:', error)
-        }
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
 }
+
 
 
 
@@ -55,22 +51,35 @@ window.onload = async function () {
 async function updateSchedule(ordersArray, date) {
     const workerDivs = document.querySelectorAll('.worker')
 
-    allParts = ordersArray.reduce((acc, order) => {
-        return acc.concat(order.parts)
-    }, [])
-
-
-
     workerDivs.forEach(workerDiv => {
-        allParts.forEach(part => {
-            if (part.assignDate === date && part.assignee === workerDiv.id) {
-                const todoSpan = document.createElement('span')
-                todoSpan.classList.add('todo')
+        oldSpans = workerDiv.querySelectorAll('span')
 
-                todoSpan.innerText = part.name
+        oldSpans.forEach(span => {
+            span.parentNode.removeChild(span)
+        })
 
-                workerDiv.appendChild(todoSpan)
-            }
+        ordersArray.forEach(order => {
+            let createdHeader = false
+            order.parts.forEach(part => {
+                if (part.assignDate === date && part.assignee === workerDiv.id && part.partStatus !== 'Done') {
+                    if (!createdHeader) {
+                        const headerSpan = document.createElement('span')
+                        headerSpan.classList.add('customer-header')
+
+                        headerSpan.innerText = order.customer
+
+                        workerDiv.appendChild(headerSpan)
+                        
+                        createdHeader = true
+                    }
+                    const todoSpan = document.createElement('span')
+                    todoSpan.classList.add('todo')
+    
+                    todoSpan.innerText = part.name
+    
+                    workerDiv.appendChild(todoSpan)
+                }
+            })
         })
     })
 }
@@ -88,11 +97,39 @@ async function updateSchedule(ordersArray, date) {
 
 
 function nextDay() {
-    console.log('Clicked Next Day')
+    const dateString = document.querySelector('.current-date').innerText
+
+    let [month, day, year] = dateString.split('/').map(Number);
+    const currentDate = new Date(year, month - 1, day);  // JavaScript months are 0-based
+    currentDate.setDate(currentDate.getDate() + 1);
+
+    month = String(currentDate.getMonth() + 1).padStart(2, '0');  // Adds leading zero if needed
+    day = String(currentDate.getDate()).padStart(2, '0');  // Adds leading zero if needed
+    year = currentDate.getFullYear();
+    const newDateString = `${month}/${day}/${year}`;
+
+    console.log(newDateString);
+    document.querySelector('.current-date').innerText = newDateString
+
+    updateSchedule(ordersArray, newDateString)
 }
 
 
 
 function previousDay() {
-    console.log('Clicked Previous Day')
+    const dateString = document.querySelector('.current-date').innerText
+
+    let [month, day, year] = dateString.split('/').map(Number);
+    const currentDate = new Date(year, month - 1, day);  // JavaScript months are 0-based
+    currentDate.setDate(currentDate.getDate() - 1);
+
+    month = String(currentDate.getMonth() + 1).padStart(2, '0');  // Adds leading zero if needed
+    day = String(currentDate.getDate()).padStart(2, '0');  // Adds leading zero if needed
+    year = currentDate.getFullYear();
+    const newDateString = `${month}/${day}/${year}`;
+
+    console.log(newDateString);
+    document.querySelector('.current-date').innerText = newDateString
+
+    updateSchedule(ordersArray, newDateString)
 }
