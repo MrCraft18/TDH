@@ -54,6 +54,12 @@ const rearrangeOrders = (ordersArray) => {
 const addOrder = async (newOrder) => {
     const ordersArray = await getOrders()
 
+    if (ordersArray.length == 0) {
+        ordersArray.push(newOrder)
+
+        fs.writeFileSync(ORDERS_PATH, JSON.stringify(ordersArray, null, 4))
+    }
+
     let orderExists = false
     ordersArray.forEach(order => {
         if (orderExists) {
