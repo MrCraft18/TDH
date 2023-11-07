@@ -138,6 +138,7 @@ io.on('connection', (socket) => {
             try {
                 orderJSON = await excel.parseOrder(fileData, date);
             } catch (e) {
+                console.log(e)
                 err = JSON.parse(e)
                 // If parseOrder throws an error, it will be caught here
                 if (err.userError) {
