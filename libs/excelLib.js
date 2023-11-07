@@ -239,7 +239,7 @@ async function parseOrder(file, clientDate) {
     } catch (err) {
         console.log(err)
         
-        throw new Error({userError: true, err})
+        throw new Error(JSON.stringify({userError: true, err}))
     }
 }
 
