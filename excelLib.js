@@ -20,12 +20,16 @@ async function parseOrder(file, clientDate) {
             target: 'Serial',
             action: (string) => {
                 // console.log('Found Serial: ' + string)
-                orderJSON.serial = string
+                if (string) {
+                    orderJSON.serial = string
 
-                if (string.startsWith('HH')) {
-                    orderJSON.type = 'Horizon'
+                    if (string.startsWith('HH')) {
+                        orderJSON.type = 'Horizon'
+                    } else {
+                        orderJSON.type = 'TDH'
+                    }
                 } else {
-                    orderJSON.type = 'TDH'
+                    throw new Error('Missing Serial #')
                 }
             }
         },
@@ -120,117 +124,123 @@ async function parseOrder(file, clientDate) {
         },
     ];
 
-    worksheet.eachRow({ includeEmpty: true }, (row) => {
-        row.eachCell((cell, colNumber) => {
-            if (cell.value && typeof cell.value === 'string') {
-                for (const search of searches) {
-                    if (cell.value.includes(search.target)) {
-                        const nextCell = row.getCell(colNumber + 1)
-                        search.action(nextCell.value)
+    try {
+        worksheet.eachRow({ includeEmpty: true }, (row) => {
+            row.eachCell((cell, colNumber) => {
+                if (cell.value && typeof cell.value === 'string') {
+                    for (const search of searches) {
+                        if (cell.value.includes(search.target)) {
+                            const nextCell = row.getCell(colNumber + 1)
+                            search.action(nextCell.value)
+                        }
                     }
                 }
-            }
+            })
         })
-    })
-
-    dateObj = worksheet.getCell('H6').text ? new Date(worksheet.getCell('H6').text) : ""
-
-    orderJSON.dates.lastUpload = clientDate
-    orderJSON.dates.finishDate = dateObj.toLocaleString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric', timeZone: 'UTC' })
-
-    orderJSON.orderStatus = 'Not Started'
-
-    partsArray.push({
-        name: "Doors",
-        assignee: "Unassigned Worker",
-        assignDate: "",
-        partStatus: "Unfinished"
-    })
-
-    partsArray.push({
-        name: "Trays",
-        assignee: "Unassigned Worker",
-        assignDate: "",
-        partStatus: "Unfinished"
-    })
-
-    partsArray.push({
-        name: orderJSON.type + " Pins",
-        assignee: "Unassigned Worker",
-        assignDate: "",
-        partStatus: "Unfinished"
-    })
-
-    partsArray.push({
-        name: orderJSON.type + " Hydraulic Tank",
-        assignee: "Unassigned Worker",
-        assignDate: "",
-        partStatus: "Unfinished"
-    })
-
-    if (orderJSON.bodyType.includes('Service')) {
+    
+        dateObj = worksheet.getCell('H6').text ? new Date(worksheet.getCell('H6').text) : ""
+    
+        orderJSON.dates.lastUpload = clientDate
+        orderJSON.dates.finishDate = dateObj.toLocaleString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric', timeZone: 'UTC' })
+    
+        orderJSON.orderStatus = 'Not Started'
+    
         partsArray.push({
-            name: "Driver Side Boxes",
+            name: "Doors",
             assignee: "Unassigned Worker",
             assignDate: "",
             partStatus: "Unfinished"
         })
-
+    
         partsArray.push({
-            name: "Passenger Side Boxes",
+            name: "Trays",
             assignee: "Unassigned Worker",
             assignDate: "",
             partStatus: "Unfinished"
         })
-
+    
         partsArray.push({
-            name: "Frame",
+            name: orderJSON.type + " Pins",
             assignee: "Unassigned Worker",
             assignDate: "",
             partStatus: "Unfinished"
         })
-
+    
         partsArray.push({
-            name: "Headache Rack",
+            name: orderJSON.type + " Hydraulic Tank",
             assignee: "Unassigned Worker",
             assignDate: "",
             partStatus: "Unfinished"
         })
-
-        partsArray.push({
-            name: "Deck Plate",
-            assignee: "Unassigned Worker",
-            assignDate: "",
-            partStatus: "Unfinished"
-        })
-    } else {
-        partsArray.push({
-            name: "Side Gate",
-            assignee: "Unassigned Worker",
-            assignDate: "",
-            partStatus: "Unfinished"
-        })
+    
+        if (orderJSON.bodyType.includes('Service')) {
+            partsArray.push({
+                name: "Driver Side Boxes",
+                assignee: "Unassigned Worker",
+                assignDate: "",
+                partStatus: "Unfinished"
+            })
+    
+            partsArray.push({
+                name: "Passenger Side Boxes",
+                assignee: "Unassigned Worker",
+                assignDate: "",
+                partStatus: "Unfinished"
+            })
+    
+            partsArray.push({
+                name: "Frame",
+                assignee: "Unassigned Worker",
+                assignDate: "",
+                partStatus: "Unfinished"
+            })
+    
+            partsArray.push({
+                name: "Headache Rack",
+                assignee: "Unassigned Worker",
+                assignDate: "",
+                partStatus: "Unfinished"
+            })
+    
+            partsArray.push({
+                name: "Deck Plate",
+                assignee: "Unassigned Worker",
+                assignDate: "",
+                partStatus: "Unfinished"
+            })
+        } else {
+            partsArray.push({
+                name: "Side Gate",
+                assignee: "Unassigned Worker",
+                assignDate: "",
+                partStatus: "Unfinished"
+            })
+        }
+    
+        if (orderJSON.type === 'TDH') {
+            partsArray.push({
+                name: "Control Panel",
+                assignee: "Unassigned Worker",
+                assignDate: "",
+                partStatus: "Unfinished"
+            })
+        } else if (orderJSON.type === 'Horizon') {
+            partsArray.push({
+                name: "Valve Cover",
+                assignee: "Unassigned Worker",
+                assignDate: "",
+                partStatus: "Unfinished"
+            })
+        }
+    
+        orderJSON.parts = partsArray
+    
+        return orderJSON
+    } catch (err) {
+        console.log(err)
+        
+        return({userError: true, err})
     }
-
-    if (orderJSON.type === 'TDH') {
-        partsArray.push({
-            name: "Control Panel",
-            assignee: "Unassigned Worker",
-            assignDate: "",
-            partStatus: "Unfinished"
-        })
-    } else if (orderJSON.type === 'Horizon') {
-        partsArray.push({
-            name: "Valve Cover",
-            assignee: "Unassigned Worker",
-            assignDate: "",
-            partStatus: "Unfinished"
-        })
-    }
-
-    orderJSON.parts = partsArray
-
-    return orderJSON
 }
 
 

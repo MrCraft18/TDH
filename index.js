@@ -144,6 +144,13 @@ io.on('connection', (socket) => {
                 ok: true
             })
         } catch (err) {
+            if (err.userError) {
+                res({
+                    ok: false,
+                    ...err
+                })
+            }
+
             res({
                 ok: false
             })
